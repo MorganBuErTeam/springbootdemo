@@ -1,6 +1,8 @@
 package com.test.demo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -9,6 +11,7 @@ import java.util.Date;
 
 @Data
 @Table(name = "t_mes_info")
+@AllArgsConstructor//有参构造
 public class MesInfo {
 
 	@Id
