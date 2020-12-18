@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jsjr">
+    <output-path>$PROJECT_DIR$/out/artifacts/jsjr</output-path>
+    <root id="archive" name="jsjr.war">
+      <element id="dir-copy" path="$PROJECT_DIR$/src/main/resources/static" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="springbootdemo" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

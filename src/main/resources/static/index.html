@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/msgbox.js"></script>
+</head>
+<body>
+    <!--我是静态页面-->
+    <!--<button onclick="doword()">打开文档</button>-->
+<!--<h1 id="luji1"><a href="http://localhost:8080/demo/luji1">1号地标&#45;&#45;81号地标路劲下发</a></h1>-->
+<!--<h1 id="luji2"><a href="http://localhost:8080/demo/luji2">81号地标&#45;&#45;59号地标路劲下发</a></h1>-->
+<!--<h1 id="luji3"><a href="http://localhost:8080/demo/luji3">59号地标&#45;&#45;1号地标路劲下发</a></h1>-->
+    <input type="text" id="startCard" class="fl ml20 hand_search_input pl5" placeholder="请输入起始地标卡"/>
+    <input type="text" id="targetCard" class="fl ml20 hand_search_input pl5" placeholder="请输入结束地标卡"/>
+    <button class="fl agv_button_affirm fc_f ml10" id="lowerPath">下发路径</button>
+<!--<h1 id="start"><a href="http://localhost:8080/demo/start">启动</a></h1>-->
+<!--<h1 id="stop"><a href="http://localhost:8080/demo/stop">停止</a></h1>-->
+<!--<h1 id="risehook"><a href="http://localhost:8080/demo/risehook">挂销升</a></h1>-->
+<!--<h1 id="drophook"><a href="http://localhost:8080/demo/drophook">挂销降</a></h1>-->
+<!--<h1 id="risedisk"><a href="http://localhost:8080/demo/risedisk">顶升升</a></h1>-->
+<!--<h1 id="dropdisk"><a href="http://localhost:8080/demo/dropdisk">顶升降</a></h1>-->
+<!--<h1 id="manual"><a href="http://localhost:8080/demo/manual">手动</a></h1>-->
+<!--<h1 id="automatic"><a href="http://localhost:8080/demo/automatic">自动</a></h1>-->
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("#lowerPath").click(function () {
+            var startCard=$("#startCard").val();
+            var targetCard=$("#targetCard").val();
+            $.post("../demo/lowerPath", { "startCard": startCard,"targetCard":targetCard}, function(result) {
+                debugger
+                if(result.code == "200") {
+                    publicTipMessage("ok", result.desc);
+                    return;
+                }
+                publicTipMessage("error", result.desc);
+            });
+
+        })
+    })
+function doword(){
+	var word = new ActiveXObject("Word.Application");
+	word.Visible = true;
+	word.Documents.Open("http://localhost/img/test.doc");
+}
+</script>
+</html>

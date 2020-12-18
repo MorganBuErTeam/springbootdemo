@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.UserMapper">
+	
+	
+	<select id="queryUserNameAndPassword" parameterType="String" resultType="int">
+		select u.u_type as type from <include refid="table_name" /> u where u.acount_number = #{0} and u.pwd=#{1}
+	</select>
+	
+	 <sql id="table_name">
+		t_user
+	</sql>
+</mapper>

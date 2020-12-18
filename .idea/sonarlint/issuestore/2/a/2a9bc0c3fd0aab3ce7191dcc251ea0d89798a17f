@@ -1,0 +1,12 @@
+
+X	java:S1250"<This block of commented-out lines of code should be removed.(Ÿ¢¨¸8Ü¼ØŸ.
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(Íªûùÿÿÿÿ8Ü¼ØŸ.
+U	java:S106D"9Replace this use of System.out or System.err by a logger.(ƒäÛ…8Ü¼ØŸ.
+E
+java:S1148J"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ü¼ØŸ.
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÍÓÍ¡
+]	java:S1252"<This block of commented-out lines of code should be removed.(áíüÈùÿÿÿÿ8Ü¼ØŸ.
+D
+java:S1068")Remove this unused "count" private field.(óğ¸€üÿÿÿÿ
+Z	java:S106A"9Replace this use of System.out or System.err by a logger.(ÑıÚŒüÿÿÿÿ8Ü¼ØŸ.
+]	java:S1257"<This block of commented-out lines of code should be removed.(˜Õ”òüÿÿÿÿ8Ü¼ØŸ.

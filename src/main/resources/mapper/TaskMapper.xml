@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.TaskMapper">
+
+	<resultMap type="com.test.demo.domain.Task" id="callInfoMap">
+		<id column="id" property="id" />
+		<result column="taskName" property="taskName" />
+		<result column="taskType" property="taskType" />
+		<result column="state" property="state" />
+		<result column="start_sit_code" property="startSitCode" />
+		<result column="target_sit_code" property="targetSitCode" />
+		<result column="count" property="count" />
+		<result column="frequency" property="frequency" />
+		<result column="create_date" property="createDate" />
+ 		<result column="real_start_date" property="realStartDate" />
+		<result column="finish_date" property="finishDate" />
+		<result column="remark" property="remark" />
+ 		<result column="sort" property="sort" />
+ 	</resultMap>
+
+
+
+
+	<select id="queryTaskBy" resultMap="callInfoMap" >
+		select t.* from
+		<include refid="table_name" /> t
+		where 1 =1
+		and t.state in
+		<foreach collection="state.split(',')" index="index" item="item" open="("
+				 separator="," close=")">
+			#{item}
+		</foreach>
+		<if test="taskType != null and taskType!=''">
+			and t.taskType = #{taskType}
+		</if>
+		<if test="date != null and date!='' and endTime != null and endTime!=''" >
+			and t.create_date between #{date} and #{endTime}
+		</if>
+	</select>
+
+
+
+	<select id="queryTaskInfoBy" parameterType="com.test.demo.common.util.PageCondition"
+		resultMap="callInfoMap">
+		select t.* from
+		<include refid="table_name" /> t
+		where 1 =1
+		and t.state in
+		<foreach collection="type.split(',')" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		<if test="date != null and endTime != null">
+			and t.create_date between #{date} and #{endTime}
+		</if>
+		order by t.sort asc
+		limit #{page},#{count}
+	</select>
+
+	<select id="queryTaskCountBy" parameterType="com.test.demo.common.util.PageCondition"
+		resultType="int">
+		select count(t.id) from
+		<include refid="table_name" />
+		t
+		where 1 =1
+		and t.state in
+		<foreach collection="type.split(',')" index="index" item="item" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		<if test="date != null">
+			<if test="endTime != null">
+				and t.create_date between #{date} and #{endTime}
+			</if>
+		</if>
+	</select>
+
+	<!-- 根据任务类型，起始站点以及目标站点是否存在未完成的最早的任务信息 -->
+	<select id="queryTaskInfoByWork" resultMap="callInfoMap">
+		select t.* from <include refid="table_name" /> t
+		where t.start_sit_code = #{0}
+		and t.target_sit_code = #{1}
+		and t.real_start_date is null
+		order by t.create_date asc
+		limit 1
+	</select>
+	
+	<!-- 查询最早的未完成的任务 -->
+	<select id="queryFristTaskNotStart" resultMap="callInfoMap">
+		select t.* from <include refid="table_name" /> t
+		where t.real_start_date is null
+		order by t.create_date asc
+		limit 1
+	</select>
+	
+	
+	 <select id="queryInfoBy" resultMap="callInfoMap">
+		select t.*
+		from <include refid="table_name" />  t
+		where 1=1
+		<if test="state != null and state!=''">
+			and t.state in
+			<foreach collection="state.split(',')" index="index" item="item" open="("
+					 separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		 <if test="type != null and type!=''"> and t.taskType=#{type} </if>
+		<if test="start != null">
+			<if test="end != null">
+				and t.create_date between #{start} and #{end}
+			</if>
+		</if>
+	</select> 
+	
+	<!-- 查询未执行的任务 -->
+	<select id="queryNotExecute" resultMap="callInfoMap">
+		select t.*
+		from <include refid="table_name" />  t
+		where t.state = 1
+	</select> 
+	
+		<!-- 修改未执行任务为完成-->
+	<update id="updateNotExecute">
+		update
+		<include refid="table_name" />
+		set
+		state = 3
+		where state = 1
+	</update>
+	
+		<!-- 根据编号修改任务状态-->
+	<update id="updateTaskState">
+		update
+		<include refid="table_name" />
+		set
+		state = #{state}
+		where id = #{id}
+	</update>
+	
+	<select id="selectIdBySort"  resultType="int">
+	   select id from
+       <include refid="table_name" /> 
+       where sort =  #{0}  
+	</select>
+	
+
+	
+	<select id="selectConfirBargeCount" resultType="String">
+      select count(t.id) from
+      t_task t join  t_warehouse  tw on t.start_sit_code = tw.sit_code
+      where t.state = 1 and t.`type` ='指派驳运' 
+	</select>
+	
+	<select id="selectMaxSort"  resultType="java.lang.Integer">
+	   select max(sort) from
+       <include refid="table_name" /> 
+	</select>
+	
+	<!-- 上移下移 -->
+	<update id="updateUpOrDown">
+	    update <include refid="table_name" /> 
+		 <trim prefix="set" suffixOverrides=",">  
+	        <trim prefix="sort =case" suffix="end,">  
+	            <foreach collection="list" item="item">  
+	               when id = #{item.id} then #{item.sort}
+	            </foreach>  
+	        </trim>  
+	      <trim prefix="create_date =case" suffix="end,"> 
+	            <foreach collection="list" item="item">  
+	                <if test="item.type != 0">  
+	                    when id =#{item.id} then now() 
+	                </if>  
+	            </foreach>  
+	        </trim> 
+	    </trim>  
+	    <where>  
+	        <foreach collection="list" separator="or" item="item">  
+	            id = #{item.id}
+	        </foreach>  
+	    </where>  
+	</update>
+	
+	
+	<!-- 批量新增任务日志信息 -->
+	<insert id="insertTaskLog">
+		 insert into <include refid="table_name" />
+            (code,type,state,start_sit_code,sort,create_date)
+   		 values
+	    <foreach collection ="list" item="item" separator =",">
+	        (#{item.code},#{item.type}, #{item.state}, #{item.startSitCode}, #{item.sort},now())
+	    </foreach >
+	</insert>
+	<!--手持，根据任务类型和任务状态(未执行)，查相应的任务信息-->
+	<select id="quereyByTask"  resultType="int" parameterType="java.lang.String">
+		select count(type) from t_task where state=1 and type=#{0}
+	</select>
+
+	<select id="quereyTask"  resultMap="callInfoMap" parameterType="com.test.demo.domain.Task">
+	select * from t_task where taskType=#{taskType} and start_sit_code=#{startSitCode} and target_sit_code=#{targetSitCode} and state in(1,2)
+	</select>
+
+
+
+	<sql id="table_name">
+		t_task
+	</sql>
+</mapper>

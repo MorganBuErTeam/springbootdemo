@@ -1,0 +1,171 @@
+/*------内容整体布局 q   开始-------*/
+.agv_warp{
+    /*background: rgba(240, 242, 245, 1);*/
+    /*padding:24px;*/
+    padding:30px 15px 20px 24px;
+    position: absolute;
+    top:60px;
+    right: 0;
+    left:250px;
+    bottom: 0;
+    box-sizing: border-box;
+
+}
+.agv_inner{
+	width: 100%;
+	min-height: 96%;
+	position: relative;
+	min-width: 770px;
+	padding-bottom: 20px;
+}
+/*------内容整体布局 q   结束-------*/
+
+/*------标题按钮栏 q   开始-------*/
+.agv_nav{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #EAEAEA;
+}
+.title_button{
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	border-bottom: 4px solid transparent;
+	text-align: center;
+	cursor: default;
+	color: #3366CC;
+}
+.title_button_current{
+	color:rgba(24,144,255,1);
+	border-bottom: 4px solid #3366CC;
+}
+/*------标题按钮栏 q   结束-------*/
+.gorTit{
+	/* position: absolute;
+	top:120px;
+	left:30px;
+	right:30px; */
+	height:30px;
+    line-height: 30px;
+    margin: 30px 24px 0 30px;
+    /*background: #FAFAFA;*/
+    color: #3366CC;
+    font-size: 14px;
+    font-weight: bold;
+}
+.place_input{
+	/*width: 480px;
+	min-width:250px;*/
+	height: 28px;
+	line-height: 28px;
+	color: #3366CC;
+	background: #F4F9FF !important;
+	border: 1px solid #BAD0EA !important;
+	outline: none !important;
+}
+.gorInfo_plc .place_input{
+	width: 1210px;
+}
+.place_input:focus{
+   border:1px solid rgba(132,178,235,1) !important;
+   box-shadow:0px 0px 10px 0px rgba(83,149,229,0.6) !important;
+}
+.gor_info_box{
+	background: #fff;
+	box-shadow: 0px 1px 7px 0px rgba(172,171,178,0.27);
+	padding: 0 0 24px 0 !important;
+	border-radius: 4px;
+	width: 100%;
+}
+.gorInfo{
+/* 	position: relative; */
+    /* top: 120px; */
+    /* height: 128px; */
+    /* line-height: 128px; */
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    color: #333333;
+    font-size: 14px;
+}
+.gorInfo span,.gorConter span{
+	width: 75px;
+	text-align: right;
+	margin-right: 15px;
+	color: #666;
+}
+.gorConter_pl span{
+	width: 80px;
+}
+.gorInfo_sta span{
+	width: 105px;
+}
+.success_cang_lei{
+	display: flex;
+    align-items: flex-start;
+}
+.success_cang_lei span{
+	flex: 0 0 auto;
+}
+.success_cang_lei .place_input{
+	flex: 1 1 auto;
+}
+.gorConter{
+	/* position: relative;
+    top: 250px; */
+    /*width: 60%;*/
+    margin-left: 50px;
+    margin-top: 10px;
+}
+.info_icon_box{
+	height: 40px;
+	line-height: 40px;
+	background: #F4F9FF;
+}
+.packet_area_left,.packet_area_right{
+	width: 50%;
+}
+.fc_green{
+	color: #33CC70;
+}
+.fc_blue{
+	color: #3366CC;
+}
+.fc_gray{
+	color: #666;
+}
+.fc_539{
+	color: #3366CC;
+}
+.icon_style{
+	display: inline-block;
+	width: 16px !important;
+	height: 16px;
+	border-radius: 50%;
+	margin-top: 2px;
+}
+.icon_style_s{
+	display: inline-block;
+	width: 12px !important;
+	height: 12px;
+	border-radius: 50%;
+	margin-top: 2px;
+}
+.icon_green{
+	background: radial-gradient(#BAFF25, #5CC640);
+	background: -webkit-radial-gradient(#BAFF25, #5CC640); /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(#BAFF25, #5CC640); /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(#BAFF25, #5CC640); /* Firefox 3.6 - 15 */
+	border: 1px solid #5CC640;
+	box-shadow: 0 0 10px 2px RGBA(50, 189, 74, 0.58);
+}
+.icon_red{
+	background: radial-gradient(#FF9125, #FF3817);
+	background: -webkit-radial-gradient(#FF9125, #FF3817); /* Safari 5.1 - 6.0 */
+    background: -o-radial-gradient(#FF9125, #FF3817); /* Opera 11.6 - 12.0 */
+    background: -moz-radial-gradient(#FF9125, #FF3817); /* Firefox 3.6 - 15 */
+	border: 1px solid #FF3817;
+	box-shadow: 0 0 10px 2px RGBA(189, 76, 50, 0.58);
+}
+.wp20{
+	width: 20%;
+}

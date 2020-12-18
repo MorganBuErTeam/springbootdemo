@@ -1,0 +1,437 @@
+/*------内容整体布局 q   开始-------*/
+.Odometer_warp{
+    background: #F5F6F9;
+    padding:20px 15px 20px 24px;
+    position: absolute;
+    top:60px;
+    right: 0;
+    left:250px;
+    bottom: 0;
+    box-sizing: border-box;
+
+}
+.Odometer_inner{
+	width: 100%;
+	min-height: 96%;
+	border-radius: 5px;
+	/*background: #fff;*/
+	background: #F5F6F9;
+	
+	position: relative;
+}
+/*------内容整体布局    结束-------*/
+.agv_nav{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #EAEAEA;
+	background: #fff;
+	border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.title_button{
+	cursor: default;
+	color: #3366CC;
+}
+
+/*------------功能操作栏  开始----------*/
+.agv_button_bar{
+	padding:0 30px;
+	height:60px;
+	padding-top:16px;
+	background: #fff;
+	border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.agv_button_add,.agv_button_delete,.agv_button_save{
+	 width:80px;
+	height: 28px; 
+	line-height: 28px; 
+	text-align: center;
+	border: 1px solid #D9D9D9;
+	color: #fff;
+	font-size: 14px;
+	border-radius:4px;
+	background: #3366CC;
+}
+
+.agv_button_delete:hover,.agv_button_save:hover{
+	background: #3366CC;
+	color: #fff;
+	border: 1px solid #3366CC;
+}
+.coent_button_current{
+	background: #3366CC;
+	color: #fff;
+	border: 1px solid #3366CC;
+}
+.agv_button_affirm,.agv_button_refer,.agv_button_affirm1{
+	width:60px;
+	height:28px; 
+	border:1px solid #D9D9D9;
+	border-radius: 4px;
+	text-align: center;
+	font-size: 14px;
+	border: 0;
+	background: #3366CC;
+	color: #fff;
+}
+.agv_chong_box,.agv_chong_box1{
+	position: relative;
+	width:146px;
+	background: #fff;
+	color:#999;
+	border:1px solid #D9D9D9;
+	border-radius:4px;
+	height:28px;
+	line-height: 28px;
+}
+.agv_chong_input{
+	height:26px;
+	line-height: 27px;
+	float: left;
+	width: 70px;
+	border:none;
+	border-radius: 4px;
+	color: #3366CC;
+}
+.agv_chong_cirl{
+	width:16px;
+	height:16px; 
+	background:rgba(106,236,180,1);
+	box-shadow:0px 0px 6px rgba(93,255,184,0.4) ;
+	border-radius:50%;
+}
+.agv_chong_input1{
+	width:146px;
+	background: #fff;
+	color:#999;
+	border:1px solid #D9D9D9;
+	border-radius:4px;
+	height:28px;
+	line-height: 28px;
+}
+.agv_chong_input1{width:67px;}
+.agv_refer_input{
+	width:240px;
+	height:28px; 
+	background:rgba(243,243,243,1);
+	border-radius: 4px;
+	border:1px solid #D9D9D9;
+	padding-left:10px;
+	
+}
+.agv_refer_img{margin-top:0px;right: -1px;top: 0;}
+.agv_refer_img:hover{cursor: pointer;}
+.agv_search_type,.agv_search_line,.agv_search_input{
+	height: 28px;
+	border: 1px solid #EEEEEE;
+	line-height: 28px;
+	color:#9299A9;
+}
+
+.icon_cal{
+    cursor: default;
+    position: absolute;
+    z-index: 999;
+    top: 4px;
+    right: 96px;
+}
+.charg_btn{
+	margin: 0 30px 20px 30px;
+}
+.input_search{
+    height: 26px;
+    line-height: 26px;
+    border-radius: 4px;
+    border: 0;
+    width: 90px;
+    color: #3366CC;
+}
+.input_search::-webkit-input-placeholder{   
+	/* WebKit browsers */   
+	color: #3366CC;
+}   
+.input_search:-moz-placeholder{   
+	/* Mozilla Firefox 4 to 18 */   
+	color: #3366CC;   
+}   
+.input_search::-moz-placeholder{   
+	/* Mozilla Firefox 19+ */   
+	color: #3366CC;   
+}   
+.input_search:-ms-input-placeholder{   
+	/* Internet Explorer 10+ */   
+	color: #3366CC;   
+}
+.datatimeBox{
+	height: 28px;
+	background:#fff;
+	border-radius:4px;
+	border: 1px solid #D9D9D9;
+	padding-left: 5px;
+	color: #9299A9;
+	width: 240px;
+	margin-right: 40px;
+}
+.ml15{
+	margin-left: 15px;
+}
+
+/*------------功能操作栏q  结束---------*/
+
+/* bootscript table样式修改 开始*/
+ .agvTable_box{
+	padding: 0;
+} 
+.fixed-table-container{border:0!important;}
+.table>thead:first-child>tr:first-child>th{
+	border:0!important;
+	background: #F5F6F9;
+	color:#858C9E!important;
+	/* border-radius:20px; */
+	padding-left:7px!important;
+	font-weight: 400;
+}
+.fixed-table-container tbody td {
+    border-left: 0!important; 
+    /*border-bottom:0!important;*/
+}
+.table>thead:first-child>tr:first-child>th:first-child{
+	border:0!important;
+	background: #F5F6F9;
+	color:#858C9E!important;
+	padding-left:20px!important;
+}
+.bootstrap-table .table:not(.table-condensed)>tbody>tr>td:first-child{
+	padding-left:30px!important;
+	border-bottom: 1px solid #ececec;
+}
+.bootstrap-table .table{border-bottom: 0;}
+.fixed-table-container tbody .selected td {
+    background-color: transparent;
+}
+.fixed-table-container thead th:first-child,.table>thead:first-child>tr:first-child>th:first-child {
+    border-left: none;
+    border:0;
+}
+.table>thead:first-child>tr:first-child,.table>thead:first-child{border-radius:20px;}
+.table>thead:first-child>tr:first-child>th:last-child {
+    border-left: none;
+    border:0;
+}
+.fixed-table-container thead th:last-child {
+    border-left: none;
+}
+.fixed-table-container thead th .th-inner{
+	line-height: 30px;
+}
+.fixed-table-container thead tr{border:0!important;}
+.fixed-table-container thead th .th-inner{padding:3px 0;}
+
+thead{
+	background: #F5F6F9;
+    color: #858C9E!important;
+	width: 100%;
+	
+	/*border-bottom: 1px solid #EAEAEA;
+	border-top: 1px solid #EAEAEA;*/
+}
+ .bootstrap-table .table:not(.table-condensed) > tbody > tr > td{
+ 	line-height: 26px;
+ 	border-top: 1px solid #EAEAEA !important;
+ 	color: #858C9E;
+}
+
+#agvTable {
+	border: 0;
+}
+
+tbody tr {
+	height: 44px;
+	background: rgba(255, 255, 255, 1);
+	border-radius: 3px;
+}
+
+.table-hover>tbody>tr:hover {
+	background-color: #EDF2FC!important;
+}
+
+.fixed-table-pagination {
+	padding-left: 34px;
+	padding-right: 34px;
+	margin-top: 20px;
+}
+.config_disable,.config_alert{
+	width:60px;
+	height:24px; 
+	background:rgba(24,144,255,0.1);
+	border-radius: 3px ;
+	text-align: center;
+    line-height: 24px;
+    margin-top: 5px;
+}
+.config_OnLine{
+	width:60px;
+	height:24px; 
+	background:rgba(24,144,255,0.1);
+	border-radius: 3px ;
+	text-align: center;
+    line-height: 24px;
+    margin-top: 5px;
+}
+.config_disable:hover,.config_alert:hover{
+	background: rgba(24,144,255,0.3);
+}
+.infor_agvno{
+	color: #3366CC;
+	cursor: pointer;
+}
+.infor_agvno:hover{
+	border-bottom: 1px solid #3366CC;
+}
+.agv_table_input{border:0;background: none;}
+
+.fixed-table-pagination .pagination a {
+    padding: 6px 12px;
+    line-height: 1.428571429;
+    /*height: 32px;
+    width: 32px;*/
+}
+.fixed-table-pagination {
+    padding: 0 24px;
+    color: #999;
+    margin-top: 20px;
+}
+.btn-default {
+    color: #999;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-default:hover,.btn-default:active,.btn-default:focus{
+	color: #999 !important;
+}
+.pagination li{
+	border-color: #d9d9d9;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #3366CC;
+    border-color: #3366CC;
+}
+.fixed-table-pagination {
+    padding: 0 24px;
+    color: #999;
+    margin-top: 20px;
+}
+.btn-default {
+    color: #999;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.pagination > li > a, .pagination > li > span {
+    color: #999;
+}
+.pagination > li > a:hover, .pagination > li > span:hover{
+	z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #3366CC;
+    border-color: #3366CC;
+}
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #3366CC;
+    outline: 0;
+}
+.btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default{
+	color: #999;
+}
+.dropdown-menu > li > a{
+	color: #999;
+}
+.dropdown-menu > li > a:hover{
+	color: #999;
+}
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #3366CC;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
+    z-index: 3;
+    color: #3366CC;
+    background-color: #eee;
+    border-color: #D9D9D9;
+}
+#agvTable{
+	border-collapse:separate!important;
+    border-spacing:0 10px;
+    padding: 0;
+}
+.fixed-table-container tbody td:first-child{border-left: 1px solid #EAEAEA!important;}
+.fixed-table-container tbody td:last-child{border-right: 1px solid #EAEAEA!important;}
+.fixed-table-toolbar{display: none;}
+/*button*/
+			
+.rainbow {
+  --ripple-opacity: 1;
+  --ripple-background: radial-gradient(circle at center, rebeccapurple, dodgerblue, olive, gold, orange, tomato);
+  --ripple-duration: 2000ms;
+  --ripple-easing: cubic-bezier(0, .5, .5, 1);
+  background-color: skyblue;
+  color: rgba(255, 255, 255, 0.7);
+  -webkit-transition: background-color 300ms, color 300ms;
+  transition: background-color 300ms, color 300ms;
+}
+.rainbow:hover {
+  background-color: #b3e0f2;
+  color: white;
+}
+		[anim="ripple"] {
+  position: relative;
+  overflow: hidden;
+}
+[anim="ripple"]:before {
+  content: '';
+  position: absolute;
+  display: block;
+  background: var(--ripple-background, white);
+  border-radius: 50%;
+  pointer-events: none;
+  top: calc(var(--y) * 1px);
+  left: calc(var(--x) * 1px);
+  width: calc(var(--d) * 1px);
+  height: calc(var(--d) * 1px);
+  opacity: calc(var(--o, 1) * var(--ripple-opacity, 0.3));
+  -webkit-transition: calc(var(--t, 0) * var(--ripple-duration, 600ms)) var(--ripple-easing, linear);
+  transition: calc(var(--t, 0) * var(--ripple-duration, 600ms)) var(--ripple-easing, linear);
+  -webkit-transform: translate(-50%, -50%) scale(var(--s, 1));
+          transform: translate(-50%, -50%) scale(var(--s, 1));
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+.agv_button_add {
+	--ripple-background: white;
+    --ripple-opacity: 0.3;
+    --ripple-duration: 600ms;
+    outline: none;
+    display: block;
+    color: white;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

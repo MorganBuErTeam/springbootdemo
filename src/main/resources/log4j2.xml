@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration status="INFO">
+    <Properties>
+        <Property name="instance">agv-schedule-log</Property>
+        <Property name="log.dir">logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+        </Console>
+        <RollingRandomAccessFile name="debugLog" fileName="${log.dir}/${instance}-debug.log"
+            filePattern="${log.dir}/%d{yyyy-MM}/${instance}-debug-%d{yyyy-MM-dd}-%i.log.gz"
+            append="true">
+            <PatternLayout pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+            <Filters>
+                <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="NEUTRAL" />
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="50" />
+        </RollingRandomAccessFile>
+        
+        <!-- info级别的日志信息 -->
+        <RollingRandomAccessFile name="infoLog" fileName="${log.dir}/${instance}-info.log"
+           filePattern="${log.dir}/%d{yyyy-MM}/${instance}-info-%d{yyyy-MM-dd}-%i.log.gz"
+           append="true">
+           <PatternLayout pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+           <Filters>
+               <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+           </Filters>
+           <Policies>
+               <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+               <SizeBasedTriggeringPolicy size="10MB" />
+           </Policies>
+            <DefaultRolloverStrategy max="500" />
+        </RollingRandomAccessFile>
+        
+        <!-- error级别的日志信息 -->
+        <RollingRandomAccessFile name="errorLog" fileName="${log.dir}/${instance}-error.log"
+            filePattern="${log.dir}/%d{yyyy-MM}/${instance}-error-%d{yyyy-MM-dd}-%i.log.gz"
+            append="true">
+            <PatternLayout  pattern="[%date{yyyy-MM-dd HH:mm:ss.SSS}][%thread][%level][%class][%line]:%message%n" />
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="24"  modulate="true" />
+                <SizeBasedTriggeringPolicy size="10MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="50" />
+        </RollingRandomAccessFile>
+
+    </Appenders>
+
+    <Loggers>
+        <!-- <logger name="org.springframework" level="debug" additivity="true">
+            <AppenderRef ref="errorLog" />
+        </logger>
+        root logger 配置 -->
+        <Root level="INFO" includeLocation="true">
+            <AppenderRef ref="debugLog" />
+            <AppenderRef ref="infoLog" />
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="errorLog" />
+        </Root>
+    </Loggers>
+
+</Configuration>

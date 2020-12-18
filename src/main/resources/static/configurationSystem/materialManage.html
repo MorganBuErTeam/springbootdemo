@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../js/commonJs.js"></script>
+		<script src="../css/commonCss.js"></script>
+		<link rel="stylesheet" href="../css/select2.min.css"/>
+     	<script src="../js/select2.min.js"></script>
+		<script src="js/materialManage.js"></script>
+		<link rel="stylesheet" href="css/materialManage.css" />
+		<script type="text/javascript" src="../js/jquery-form.js"></script>
+		<title>物料管理</title>
+	</head>
+	<body>
+<!--头部q-->
+	  <div class="head">
+			<div class="add_top">
+			</div>
+	  </div>
+<!-- 头部结束 -->
+<!--内容           开始q-->
+		<div class="avoid_warp">
+		    <div class="avoid_inner">
+		    	<div class="contronBar">
+		    	<!--标题按钮栏 q   开始-->
+					<div class="agv_nav clearfix">
+						<h5 class="title_bar fs14 fc_0 fw600">物料管理</h5>
+					</div>
+				<!--标题按钮栏 q   结束-->
+				
+			</div>
+				<!--功能按钮操作栏q  结束-->
+				<!--表格q  开始-->
+				<div class="avoidTable_box">
+					<div class="clearfix avoid_button_bar mb24">
+						<div class="clearfix avoid_search_box pos_r">
+							<span class="fc_83 fs14 fl lh32">物料号：</span>
+							<input type="text" class="fl avoid_search_input avoid_search_code pl5" placeholder="请输入物料号"/>
+							<span class="fc_83 fs14 fl lh32 ml30">物料名：</span>
+							<input type="text" class="fl avoid_search_input avoid_search_name pl5" placeholder="请输入物料名"/>
+							<span class="fc_83 fs14 fl lh32 ml30">库区类型：</span>
+							<select class="fl avoid_search_input avoid_search_type pl5">
+								<option value="">请选择</option>
+								<option value="1">虚拟库</option>
+								<option value="2">立体库</option>
+								<option value="3">电子标签库</option>
+							</select>
+
+							<div class="clearfix fl search_box ml30">
+									<img src="../img/search-icon.png" class="fl mr5 avoid_refer_img"/>
+									查询
+							</div>
+						</div>
+						<div class="mt24 clearfix">
+							<div class="fl clearfix">
+								<button class="button_out fl">一键下架</button>
+								<button class="button_put fl ml30">一键上架</button>
+								<button class="button_tong fl ml30">数据同步</button>
+								<button class="button_dao fl ml30">excel导入</button>
+							</div>
+							<div class="avoid_button_left fr mt10">
+								<button class="fl avoid_button_add">
+									<img src="../img/xz01.png" class="fl mr5 agv_refer_img"/>
+									新增
+								</button>
+								<button class="fl avoid_button_delete">
+									<img src="../img/qx01.png" class="fl mr5 agv_refer_img"/>
+									删除
+								</button>
+							</div>
+						</div>
+
+						<!--站点配置文件的弹框-->
+						<div class="zhezhao_dao_box1 modal fade hid" id="modss2" style="background: rgba(0,0,0,.5);">
+							<div class="zhezhao_dao_div1 pos_a pl30" style="padding-left: 30px;">
+								<div class="clearfix">
+									<img src="../img/close1.png" class="fr daoClose1"/>
+									<span class="fl zhezhao_dao_text fs12" style="color:#FF9E66;">导入文件确认</span>
+								</div>
+								<form action="../impotr/material" method="post" enctype="multipart/form-data" id = "submitTxt" >
+									<div class="clearfix">
+										<div class="zhezhao_dao_text fs12 fc_6 mt15">是否要导入这份文件？</div>
+										<input type="file" name = "file"  class="fl mt15 fc_9 fs12" id="congigTxt1" value="请选择导入的文件" />
+									</div>
+									<div class="zhezhao_dao_button fr clearfix mt15">
+										<button anim="ripple" type="submit" class="fr zhezhao_dao_affir1 fc_f mr16">确认</button>
+										<button anim="ripple1" type="reset" class="fr zhezhao_dao_cancel1 fc_6 mr24">取消</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+							
+					</div>
+					<table id="avoidTable"></table>
+				</div>
+				<!--表格q  结束-->
+			<!--</div>-->
+			<!---------------------------固定避让q   结束---------------------------->
+		    </div>
+		<!--    承制信息-->
+		  <div class="foot_supp">
+			<div style="margin:20px auto;width: 276px;" class="clearfix">
+				<img src="../img/UV1.png" class="fl" style="margin-top:3px;">
+				<p class="fl fs12" style="color:#9FA2A2;">江苏优为智造系统集成有限公司承制</p>
+			</div>
+		  </div>
+	    </div>
+	    
+	    <!--内容           结束q-->
+<!-- 删除弹出框q 开始-->
+<div class="modal fade hid" id="box_fun">
+		<div class="modal-backdrop fade in"></div>
+		<div class="zhezhao_delect_div pos_a">
+			<p class="center"><img src="../img/error.png"/></p>
+			<p class="clearfix mt20 center">
+				<span class="center ml10 zhezhao_delect_text fc_0 lh22 fs16 fw600"></span>
+				<span class="center ml10 zhezhao_delect_jing fc_0 lh22 fs14 mt5">一旦删除不可恢复</span>
+			</p>
+			<!-- 隐藏域 -->
+			<input id="funIdR" name="funIdR" type="hidden"/>
+			<p class="zhezhao_delect_button clearfix mt25 center">
+				<button anim="ripple" class="fl zhezhao_delect_affir fc_f ml45"><img src="../img/hs_qued.png" class="fl mr5 agv_refer_img"/>确认</button>
+				<span class="clearfix fl shu_b ml30 mt8"></span>
+				<button anim="ripple" class="fl zhezhao_delect_cancel fc_0 ml30"><img src="../img/hs_xqtc.png" class="fl mr5 agv_refer_img"/>取消</button>
+			</p>
+		</div>
+</div>
+<!-- 删除弹出框q 结束-->
+
+<!-- 新增模态框开始q-->
+<div class="modal fade hid" id="AGV_add">
+    <div class="modal-backdrop fade in"></div>
+    <div class="modalTabs" style="background: #fff;">
+        <div class="message_mod_tit" ><span class="fl fc_0 message_add_title">新增</span><img class="fr fc_0 mt20 agv_close_form" src="../img/close1.png" style="margin-right:20px;font-size:20px;cursor:pointer;color:#fff;" data-dismiss="modal"/></div>
+        <div class="message_mod_main login_fBox">
+            <form id="AGV_addForm" autocomplete="off">
+               	<div class="success_content_bitbox">
+               		<div class="clearfix">
+               			<div class="clearfix fl form_left">
+               				<!--<div class="success_cang_lei clearfix form-group avoidNumber_i">-->
+								<!--<span class="fl fc_83 fs14 lh32 span">条码：</span> -->
+								<!--<input type="text" name="barCode" id="barCode" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />-->
+							<!--</div>-->
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<span class="fl fc_83 fs14 lh32 span">物料名：</span> 
+								<input type="text" name="materialName" id="materialName" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />
+							</div>
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<span class="fl fc_83 fs14 lh32 span">规格型号：</span> 
+								<input type="text" name="model" id="model" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />
+							</div>
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<span class="fl fc_83 fs14 lh32 span">基本计量单位：</span> 
+								<input type="text" name="unit" id="unit" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />
+							</div>
+							<!--<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">-->
+								<!--<span class="fl fc_83 fs14 lh32 span">储位：</span> -->
+								<!--<input type="text" name="storageLocation" id="storageLocation" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />-->
+							<!--</div>-->
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<span class="fl fc_83 fs14 lh32 span">重量/KG：</span>
+								<select class="success_cang_name_input form-control fr place_input clearArea" id="weight" name="weight">
+									<option value="">请选择</option>
+									<option value="小于10KG">小于10KG</option>
+									<option value="大于10KG">大于10KG</option>
+								</select >
+								<!--<input type="text" name="weight" id="weight" class="success_cang_name_input fl place_input clearArea form-control" placeholder="请输入" />-->
+							</div>
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<input type="text" name="" id="" class="success_cang_name_input fr place_input clearArea form-control" disabled placeholder="正常" />
+								<span class="fr fc_83 fs14 lh32 span">状态:</span>
+							</div>
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10">
+								<span class="fl fc_83 fs14 lh32 span">库区类型：</span>
+								<select class="fl success_cang_name_input fl place_input clearArea form-control" id="kuType">
+									<option value="">请选择</option>
+									<option value="1">虚拟库</option>
+									<option value="2">立体库</option>
+									<option value="3">电子标签库</option>
+								</select>
+							</div>
+               			</div>
+               			<div class="clearfix fr form_right">
+               				<div class="success_cang_lei clearfix form-group avoidNumber_i">
+								<input type="text" name="materialCode" id="materialCode" class="success_cang_name_input fr place_input clearArea form-control"
+							placeholder="请输入" />
+								<span class="fr fc_83 fs14 lh32 span">物料号：</span> 
+							</div>
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10"> 
+								<input type="text" name="nameAll" id="nameAll" class="success_cang_name_input fr place_input clearArea form-control" placeholder="请输入" />
+								<span class="fr fc_83 fs14 lh32 span">全名：</span>
+							</div>
+               				<div class="success_cang_lei clearfix form-group">
+								<select class="success_cang_name_input form-control fr place_input clearArea" id="attribute" name="attribute">
+									<option value="">请选择</option>
+									<option value="自制">自制</option>
+									<option value="外购">外购</option>
+									<option value="其他">其他</option>
+								</select >
+								<span class="fr fc_83 fs14 lh32 span">物料属性：</span>
+							</div>
+							<!--<div class="success_cang_lei clearfix form-group avoidNumber_i mt10"> -->
+								<!--<input type="text" name="warehouse" id="warehouse" class="success_cang_name_input fr place_input clearArea form-control" placeholder="请输入" />-->
+								<!--<span class="fr fc_83 fs14 lh32 span">默认仓库：</span>-->
+							<!--</div>-->
+							<div class="success_cang_lei clearfix form-group avoidNumber_i mt10"> 
+								<input type="text" name="fullNum" id="fullNum" class="success_cang_name_input fr place_input clearArea form-control" placeholder="请输入" />
+								<span class="fr fc_83 fs14 lh32 span">满箱数量：</span>
+							</div>
+							<div class="success_cang_lei clearfix form-group">
+								<select class="success_cang_name_input form-control fr place_input clearArea" id="Hz" name="Hz">
+									<option value="">请选择</option>
+									<option value="高">高</option>
+									<option value="中">中</option>
+									<option value="低">低</option>
+								</select >
+								<span class="fr fc_83 fs14 lh32 span">频次：</span>
+							</div>
+               			</div>
+               		</div>
+					<!-- agvId隐藏域 -->
+					<input type="hidden" name="avoidId" id="avoidId">
+				</div>
+				<div class="message_mod_foot">
+                	<button type="submit" class="putIn_btn2 fl ml28" style="color: #fff;"  id="avoidYes" aria-hidden="true"><img src="../img/bc01.png" class="fl mr5 agv_refer_img"/>保存</button>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 新增模态框结束q-->
+
+<!--------------详情弹框q      开始-------------->
+<div class="taskDetailsBox none">
+	<div class="taskDetailsDiv">
+		<div class="clearfix">
+			<span class="fc_0 fs16 fw600 fl">详情</span>
+			<img src="../img/close1.png" class="fr DetailsX" />
+		</div>
+		<div class="fl clearfix taskDetailsLeft mt20">
+			<!--<div class="clearfix">-->
+				<!--<span class="fl fc_83 fs14 spanright">条码：</span>-->
+				<!--<span class="fl fc_0 fs14" id="orderNum"></span>-->
+			<!--</div>-->
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanright">物料名：</span>
+				<span class="fl fc_0 fs14" id="DetailmaterialName"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanright">规格型号：</span>
+				<span class="fl fc_0 fs14" id="Detailmode"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanright">基本计量单位：</span>
+				<span class="fl fc_0 fs14" id="Detailunit"></span>
+			</div>
+			<!--<div class="clearfix mt10">-->
+				<!--<span class="fl fc_83 fs14 spanright">储位：</span>-->
+				<!--<span class="fl fc_0 fs14" id="Detailbind"></span>-->
+			<!--</div>-->
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanright">重量/KG：</span>
+				<span class="fl fc_0 fs14" id="Detailpi"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanright">状态：</span>
+				<span class="fl fc_0 fs14" id="DetailCode"></span>
+			</div>
+		</div>
+		<div class="fr clearfix taskDetailsRight mt20 ml30">
+			<div class="clearfix">
+				<span class="fl fc_83 fs14 spanleft">物料号：</span>
+				<span class="fl fc_0 fs14" id="DetailmaterialNo"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanleft">全名：</span>
+				<span class="fl fc_0 fs14" id="Detailfullname"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanleft">物料属性：</span>
+				<span class="fl fc_0 fs14" id="DetailmaterialPro"></span>
+			</div>
+			<!--<div class="clearfix mt10">-->
+				<!--<span class="fl fc_83 fs14 spanleft">默认仓库：</span>-->
+				<!--<span class="fl fc_0 fs14" id="DetaildefaultKu"></span>-->
+			<!--</div>-->
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanleft">满箱数量：</span>
+				<span class="fl fc_0 fs14" id="DetailputTime"></span>
+			</div>
+			<div class="clearfix mt10">
+				<span class="fl fc_83 fs14 spanleft">频次：</span>
+				<span class="fl fc_0 fs14" id="DetailoutTime"></span>
+			</div>
+			<!--<div class="clearfix mt10">-->
+				<!--<span class="fl fc_83 fs14 spanright">库存安全箱数：</span>-->
+				<!--<span class="fl fc_0 fs14" id="DetailState"></span>-->
+			<!--</div>-->
+			
+		</div>
+	</div>
+</div>
+<!--------------详情弹框q      结束-------------->
+	</body>
+</html>

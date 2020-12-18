@@ -1,0 +1,121 @@
+/*------标题q  开始-------*/
+.siemens_warp{
+    background: #F5F6F9;
+    padding:20px 15px 20px 24px;
+    position: absolute;
+    top:70px;
+    right: 0;
+    left:250px;
+    bottom: 0;
+    box-sizing: border-box;
+}
+.siemens_inner{
+	width: 100%;
+	min-height: 96%;
+	position: relative;
+	/*min-width: 770px;*/
+}
+/*------标题q   结束-------*/
+
+/*------西门子通讯配置q   开始-------*/
+.hand_nav{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #D7D7D7;
+}
+.title_button{
+	font-size:14px;
+	font-family:MicrosoftYaHei-Bold;
+	text-align: center;
+	cursor: default;
+}
+.contronBar {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 20px #ddd;
+    padding-bottom: 18px;
+}
+.siemens_t{
+	font-size:14px;
+	font-family:MicrosoftYaHei-Bold;
+	font-weight:bold;
+	color:rgba(51,102,204,1);
+}
+.gorge_box{
+	padding-top:30px;
+/*	width: 96%;
+	margin: 0 auto;*/
+}
+.span{width:60px;text-align: right;font-family:FZLTHK--GBK1-0;
+font-weight:400;
+color:rgba(102,102,102,1);}
+#AGV_addForm{
+	width: 100%;
+    position: relative;
+}
+#AGV_addForm .form-control-feedback{
+	top: -2px;
+	right: 70px;
+}
+#AGV_addForm .place_input,#packet_addForm .place_input{
+	width: 89%;
+	min-width:250px;
+	height: 28px;
+	line-height: 28px;
+	padding-bottom: 0;
+	padding-top: 0;
+	color: #3366CC;
+	margin-left: 10px;
+	background:rgba(244,249,255,1);
+	border:1px solid rgba(188,203,235,1);
+	border-radius:4px;
+}
+.place_input:focus{
+	background:rgba(245,248,255,1)!important;
+	border:1px solid rgba(51,102,204,1)!important;
+}
+.success_cang_lei{
+	display: flex;
+    align-items: flex-start;
+}
+.success_cang_lei span{
+	 flex: 0 0 auto;
+}
+.success_cang_lei .place_input,.message_mod_foot{
+	 flex: 1 1 auto;
+	color: #3366CC;
+	background:rgba(244,249,255,1);
+	border:1px solid rgba(188,203,235,1);
+	border-radius:4px;
+}
+.message_mod_foot{border:0;color: #fff;}
+#AGVYes,#PacketYes{
+	font-size: 13px;
+	padding:4px 16px;
+	background:rgba(83,149,229,1);
+	border:1px solid rgba(217,217,217,1);
+	border-radius:4px;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+  color: #3366CC!important;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #3366CC!important;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #3366CC!important;
+}   
+
+/*------------西门子通讯配置q  结束----------*/
+
+/*------包装区字段配置q   开始-------*/
+.hand_button_bar{width: 100%;}
+.packet_area_left,.packet_area_right{
+	width: 50%;
+	float: left;
+	height: 217px;
+}
+.span2{width: 100px;}
+/*------包装区字段配置q   结束-------*/

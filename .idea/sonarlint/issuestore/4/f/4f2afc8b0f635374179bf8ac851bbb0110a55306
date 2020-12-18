@@ -1,0 +1,24 @@
+
+Q
+java:S1854h";Remove this useless assignment to local variable "success".(‡ØØÙ
+Q	java:S125E"<This block of commented-out lines of code should be removed.(Õôü®
+]	java:S125"<This block of commented-out lines of code should be removed.(ôƒŸ‘ıÿÿÿÿ8ÇºÕŸ.
+X	java:S125&"<This block of commented-out lines of code should be removed.(ììöÎ8ÇºÕŸ.
+Q	java:S1252"<This block of commented-out lines of code should be removed.(–‚ş
+P	java:S1259"<This block of commented-out lines of code should be removed.(×’Ú+
+]	java:S125""<This block of commented-out lines of code should be removed.(ÔÃÈ¦üÿÿÿÿ8ÇºÕŸ.
+X	java:S125"<This block of commented-out lines of code should be removed.(ø˜š8ÇºÕŸ.
+V	java:S125T"<This block of commented-out lines of code should be removed.(ÓóĞ¬şÿÿÿÿ
+S	java:S106i"9Replace this use of System.out or System.err by a logger.(øºÑûúÿÿÿÿ
+]	java:S125"<This block of commented-out lines of code should be removed.(îúƒ½ıÿÿÿÿ8ÇºÕŸ.
+]	java:S125"<This block of commented-out lines of code should be removed.(ÔË©ğùÿÿÿÿ8ÇºÕŸ.
+Q	java:S1250"<This block of commented-out lines of code should be removed.(¿°…ó
+B
+java:S1481h",Remove this unused "success" local variable.(‡ØØÙ
+V	java:S1257"<This block of commented-out lines of code should be removed.(ñ¥ùšøÿÿÿÿ
+V	java:S125>"<This block of commented-out lines of code should be removed.(÷ı¼Êüÿÿÿÿ
+X	java:S125 "<This block of commented-out lines of code should be removed.(ŒòŸ­8ÇºÕŸ.
+V	java:S1255"<This block of commented-out lines of code should be removed.(Å¨Ôúÿÿÿÿ
+\
+java:S1118":Add a private constructor to hide the implicit public one.(ŞÚò„ûÿÿÿÿ8ÃÒÕŸ.
+]	java:S125"<This block of commented-out lines of code should be removed.(»•ûÿÿÿÿ8ÃÒÕŸ.

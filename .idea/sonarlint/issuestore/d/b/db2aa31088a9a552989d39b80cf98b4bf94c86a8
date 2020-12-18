@@ -1,0 +1,9 @@
+
+i
+java:S3252—"FUse static access with "com.alibaba.fastjson.JSON" for "toJSONString".( ·ËÀÿÿÿÿÿ8ÃÛèºŸ.
+h
+java:S11927"FDefine a constant instead of duplicating this literal "UTF-8" 7 times.(ø‘ü§şÿÿÿÿ8ÃÛèºŸ.
+^
+java:S3457>"AFormat specifiers should be used instead of string concatenation.(ÏíŞö8ÃÛèºŸ.
+{
+java:S2293p"YReplace the type specification in this constructor call with the diamond operator ("<>").(¾ìÅÖûÿÿÿÿ8ÃÛèºŸ.

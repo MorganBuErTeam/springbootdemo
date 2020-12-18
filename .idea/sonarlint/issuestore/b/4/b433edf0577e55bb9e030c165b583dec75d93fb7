@@ -1,0 +1,38 @@
+
+>
+java:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+G
+java:S1128"1Remove this unused import 'java.text.DateFormat'.(÷Œá¼
+S	java:S106$"9Replace this use of System.out or System.err by a logger.(®ıáëûÿÿÿÿ
+M	java:S106/"9Replace this use of System.out or System.err by a logger.(ÆÃ×L
+S	java:S106>"9Replace this use of System.out or System.err by a logger.(ùù£úùÿÿÿÿ
+T
+java:S1854Ù"8Remove this useless assignment to local variable "task".(úŞÃüÿÿÿÿ
+T
+java:S1197Ò"8Move the array designator from the variable to the type.(İèšôÿÿÿÿÿ
+O	java:S106Ö"9Replace this use of System.out or System.err by a logger.(¦¬³µ
+B
+java:S1481Ñ"&Remove this unused "a" local variable.(¥Ÿëşÿÿÿÿ
+E
+java:S1481Ù")Remove this unused "task" local variable.(úŞÃüÿÿÿÿ
+V	java:S125`"<This block of commented-out lines of code should be removed.(Ü«Üùÿÿÿÿ
+Q	java:S125b"<This block of commented-out lines of code should be removed.(¢æ¦ë
+V	java:S125f"<This block of commented-out lines of code should be removed.(£Ì’ùşÿÿÿÿ
+Q	java:S125i"<This block of commented-out lines of code should be removed.(îÆºß
+V	java:S125l"<This block of commented-out lines of code should be removed.(í–æÓüÿÿÿÿ
+V	java:S125q"<This block of commented-out lines of code should be removed.(üÂİöüÿÿÿÿ
+V	java:S125u"<This block of commented-out lines of code should be removed.(¤•º•üÿÿÿÿ
+P	java:S125x"<This block of commented-out lines of code should be removed.(‰Ëˆ
+V	java:S125}"<This block of commented-out lines of code should be removed.(½ş´üÿÿÿÿ
+W	java:S125‚"<This block of commented-out lines of code should be removed.(Í­ºùıÿÿÿÿ
+W	java:S125‰"<This block of commented-out lines of code should be removed.(ÈĞø·úÿÿÿÿ
+W	java:S125’"<This block of commented-out lines of code should be removed.(ÿ»—øÿÿÿÿ
+W	java:S125”"<This block of commented-out lines of code should be removed.(»©§Òüÿÿÿÿ
+R	java:S125œ"<This block of commented-out lines of code should be removed.(Öß Ñ
+Q	java:S125"<This block of commented-out lines of code should be removed.(©œ´o
+R	java:S125¢"<This block of commented-out lines of code should be removed.(šÊ¤¬
+W	java:S125©"<This block of commented-out lines of code should be removed.(Ş„£‹ÿÿÿÿÿ
+W	java:S125­"<This block of commented-out lines of code should be removed.(‹€†•ÿÿÿÿÿ
+Q	java:S125±"<This block of commented-out lines of code should be removed.(±ÓÁu
+R	java:S125·"<This block of commented-out lines of code should be removed.(ñÓæô
+R	java:S125¾"<This block of commented-out lines of code should be removed.(Üîæİ

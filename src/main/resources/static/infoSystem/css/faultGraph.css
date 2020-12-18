@@ -1,0 +1,182 @@
+/*------内容整体布局 q   开始-------*/
+.fault_warp{
+   /*background: #F5F6F9;*/
+    /*padding:24px;*/
+    padding:20px 15px 20px 24px;
+    position: absolute;
+    top:60px;
+    right: 0;
+    left:250px;
+    bottom: 0;
+    box-sizing: border-box;
+}
+.fault_inner{
+	width: 100%;
+	min-height: 96%;
+    position: relative;
+}
+/*------内容整体布局 q   结束-------*/
+/*------标题按钮栏 q   开始-------*/
+.fault_nav{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #EAEAEA;
+	clear: both;
+}
+.fault_list_func{
+	height: 120px;
+    clear: both;
+}
+.fr_bg{
+	background:#fff;
+    box-shadow: 0 0 20px RGBA(172, 171, 178, 0.27);
+    border-radius: 5px;
+}
+.fault_list_sear{
+	clear: both;
+}
+.title_button{
+	font-size:14px;
+	font-family:MicrosoftYaHei;
+	border-bottom: 3px solid transparent;
+	text-align: center;
+	margin-top: -3px;
+}
+.title_button_current,.title_button:hover{
+	color:#3366CC;
+	border-bottom: 3px solid #3366CC;
+}
+.mixtrue_avoid_list{
+	clear: both;
+}
+.agv_button_add{
+	width:100px;
+	height: 28px; 
+	line-height: 28px; 
+	text-align: center;
+	border: 1px solid #D9D9D9;
+	color: #333;
+	font-size: 14px;
+	border-radius:4px;
+	background: #F3F3F3;
+}
+/*------标题按钮栏 q   结束-------*/
+
+.taskLog{
+/* 	position: absolute;
+	left:100px;
+	right:100px;
+	top:50px; */
+	margin: 0 auto;
+    width: 100%;
+	height:350px;
+	overflow: auto;
+	background: #FAFAFA;
+	border:1px solid #eee;
+	word-wrap:break-word; 
+	word-break:break-all;          
+}
+.blueBtn,.gurBtn:hover{
+	width: 60px;
+	height: 28px;
+	background: #3366CC;
+	color: #fff;
+	font-size: 14px;
+}
+.gurBtn{
+	width: 60px;
+	height: 28px;
+	background: #EEEEEE;
+	color: #666;
+	font-size: 14px;
+}
+.btnGroup{
+	/* position: absolute;
+	right:100px;
+	top:580px; */
+	float: right;
+    margin-top: 24px;
+}
+.input_search_box{
+	width: 240px;
+	height: 28px;
+	line-height: 26px;
+	border: 1px solid #D9D9D9;
+	border-radius:4px;
+}
+.input_search{
+	height: 28px;
+	line-height: 28px;
+	background: none;
+	border-radius:4px;
+	border: 0;
+	padding-left: 5px;
+	color: #3366CC !important;
+	width: 85px;
+}
+.date_search::-webkit-input-placeholder{   
+	/* WebKit browsers */   
+	color: #3366CC;
+}   
+.date_search:-moz-placeholder{   
+	/* Mozilla Firefox 4 to 18 */   
+	color: #3366CC;   
+}   
+.date_search::-moz-placeholder{   
+	/* Mozilla Firefox 19+ */   
+	color: #3366CC;   
+}   
+.date_search:-ms-input-placeholder{   
+	/* Internet Explorer 10+ */   
+	color: #3366CC;   
+}
+.date_search{
+	width: 110px;
+	height: 28px;
+	line-height: 26px;
+	border: 1px solid #D9D9D9;
+	border-radius:4px;
+	color: #3366CC !important;
+	padding-left: 10px;
+	cursor: default;
+}
+.ml15{
+	margin-left: 15px;
+}
+.icon_cal{
+    cursor: default;
+    position: absolute;
+    z-index: 999;
+    top: 4px;
+    right: 6px;
+}
+.task_search_input{
+	width:200px;
+	height:28px;
+	background:#F3F3F3;
+	border:1px solid #D9D9D9;
+	border-radius:4px;
+}
+
+.export_excel{
+	padding: 0 15px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #D9D9D9;
+    color: #333;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #3366CC;
+    color: #fff;
+}
+.export_excel:hover{
+	color: #fff;
+}
+.laydate-set-ym span:hover{
+	color: #3366CC;
+}
+.layui-laydate .layui-this {
+    background-color: #3366CC!important;
+    color: #fff!important;
+}

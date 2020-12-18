@@ -1,0 +1,55 @@
+
+d
+java:S3457˜"AFormat specifiers should be used instead of string concatenation.(ƒÖíµşÿÿÿÿ8øĞÿºŸ.
+I
+java:S1168"+Return an empty collection instead of null.(¥¹ï8øĞÿºŸ.
+c
+java:S3252‘"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(¬ã³Î8øĞÿºŸ.
+Z
+java:S2629„"7Use the built-in formatting to construct this argument.(«¡°Ÿıÿÿÿÿ8øĞÿºŸ.
+y
+java:S2629f"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(Ï¢8øĞÿºŸ.
+c
+java:S3252†"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(»ƒãî8øĞÿºŸ.
+^
+java:S3457f"AFormat specifiers should be used instead of string concatenation.(Ï¢8øĞÿºŸ.
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(éïŒŞ8øĞÿºŸ.
+X	java:S125,"<This block of commented-out lines of code should be removed.(‡…ã¸8øĞÿºŸ.
+[
+java:S3516("9Refactor this method to not always return the same value.(“Åÿíüÿÿÿÿ8øĞÿºŸ.
+E
+java:S1148P"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8øĞÿºŸ.
+I
+java:S1144z",Remove this unused private "smtInfo" method.(ğŒåã8øĞÿºŸ.
+I
+java:S1168™"+Return an empty collection instead of null.(¥¹ï8øĞÿºŸ.
+d
+java:S3457„"AFormat specifiers should be used instead of string concatenation.(«¡°Ÿıÿÿÿÿ8øĞÿºŸ.
+O
+java:S1144V"-Remove this unused private "smtMater" method.(ï×ïÿÿÿÿÿ8øĞÿºŸ.
+b
+java:S32525"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ÛÙ¡8øĞÿºŸ.
+g
+java:S3252n"EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ìë¯üÿÿÿÿ8øĞÿºŸ.
+U
+java:S1135‹"2Complete the task associated to this TODO comment.(—ÂÖŒúÿÿÿÿ8¾ˆƒ»Ÿ.
+¤
+java:S1186§"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(³¬­€øÿÿÿÿ8øĞÿºŸ.
+b
+java:S3252e"@Use static access with "com.alibaba.fastjson.JSON" for "toJSON".(á­Ÿ§ùÿÿÿÿ8øĞÿºŸ.
+g
+java:S3252."EUse static access with "com.alibaba.fastjson.JSON" for "parseObject".(ÄüÉıÿÿÿÿ8øĞÿºŸ.
+Ÿ
+java:S1186¢"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(äªûƒ8øĞÿºŸ.
+~
+java:S2629h"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ğœªÿÿÿÿÿ8Èç»Ÿ.
+~
+java:S2629s"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(ş»Îåûÿÿÿÿ8Èç»Ÿ.
+
+java:S2629€"\Invoke method(s) only conditionally. Use the built-in formatting to construct this argument.(âš¢¡øÿÿÿÿ8Èç»Ÿ.
+c
+java:S3457h"AFormat specifiers should be used instead of string concatenation.(ğœªÿÿÿÿÿ8Èç»Ÿ.
+c
+java:S3457s"AFormat specifiers should be used instead of string concatenation.(ş»Îåûÿÿÿÿ8Èç»Ÿ.
+d
+java:S3457€"AFormat specifiers should be used instead of string concatenation.(âš¢¡øÿÿÿÿ8Èç»Ÿ.

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../js/commonJs.js"></script>
+		<script src="../css/commonCss.js"></script>
+		<link type="text/css" rel="stylesheet" href="../css/jeDate-test.css">
+	    <link type="text/css" rel="stylesheet" href="skin/jedate.css">
+	    <script type="text/javascript" src="../js/jedate.js"></script>
+	    <link rel="stylesheet" type="text/css" href="../css/checkbix.min.css" />
+		<script src="js/taskInfo.js"></script>
+		<link rel="stylesheet" href="css/taskInfo.css" />
+		<title>任务信息</title>
+	</head>
+	<style type="text/css">
+		.span {width: 85px;}
+		input[type=checkbox].checkbix[data-shape=circled]+label>span {
+		    border-radius: 100%;
+		    margin-right: 12px;
+		}
+		input[type=checkbox].checkbix[data-size=large]+label>span {
+		    width: 20px;
+		    height: 20px;
+		}
+		input[type=checkbox].checkbix:checked+label>span:before {
+		    content: "";
+		    position: absolute;
+		    top: -2px;
+		    left: 14%;
+		    margin-left: auto;
+		    margin-right: auto;
+		    font-size: 35px;
+		    border-right: 3px solid transparent;
+		    border-bottom: 3px solid transparent;
+		    -webkit-transform: rotate(45deg);
+		    transform: rotate(45deg);
+		    -webkit-transform-origin: 0 100%;
+		    transform-origin: 0 100%;
+		    -webkit-animation: checkboxcheck 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+		    animation: checkboxcheck 125ms 50ms cubic-bezier(.1,0,.1,1) forwards;
+		}
+		input[type=checkbox].checkbix+label>span {
+		    background: #E6E6E6;
+		    border: .1rem solid #fff;
+		}
+		.pt6{padding-top: 6px;}
+	</style>
+	<body>
+<!--头部-->
+	  <div class="head">
+			<div class="add_top">
+			</div>
+	  </div>
+<!-- 头部结束 -->
+<!--内容           开始-->
+		<div class="avoid_warp">
+		    <div class="avoid_inner">
+		    	<!--标题按钮栏    开始-->
+					<div class="clearfix">
+						<div class="title_bar fs14 fl fc_0 cursor" ><a class="fw600" style="color: #000000;" href="../infoSystem/taskInfo.html">当前任务</a></div>
+						<div class="title_bar fs14 fl fc_0 cursor" style="background: none; color: #8396AE;"><a style="background: none; color: #8396AE;font-weight:500;" href="../infoSystem/historyTaskInfo.html">历史任务</a></div>
+					</div>			
+				<!--标题按钮栏    结束-->
+				<!-----------------------当前任务列表   开始------------------------>
+				<div class="fixed_avoid_list clearfix">
+					
+					<!--表格q  开始-->
+					<div class="taskTable clearfix">
+						<div class="clearfix agv_button_bar">
+							<div class="clearfix">
+								<div class="clearfix fl agv_search_box pos_r">
+									<span class="fc_83 fs14 fl lh32">任务类型：</span>
+									<select type="text" class="fl agv_search_input pl10 lh32" id="search_type">
+										<option value="">请选择</option>
+										<option value="内部转运">内部转运</option>
+										<option value="减容车间">减容车间</option>
+									</select>
+									<div class="fl ml30 mr30 clearfix" style="height:60px;">
+										<span class="fc_83 fs14 fl lh32">创建时间：</span>
+										<div class="fl">
+											<input type="text" class="jeinput fs14 fc_0" style="cursor: default;" id="c1" placeholder="请选择">
+										</div>
+										<span class="fl lh32 ml10">-</span>
+										<div class="ml10 fl" >
+											<input type="text" class="jeinput fs14 fc_0" style="cursor: default;" id="c2" placeholder="请选择">
+										</div>
+									</div>	
+								</div>
+							</div>
+							<div class="clearfix">
+								<div class="clearfix fl search_box cursor" id="chaxun">
+									<img src="../img/search-icon.png" class="fl mr5 agv_refer_img"/>
+									查询
+								</div>
+								<!--<button class="daochu ml30 fl">导出Excel</button>-->
+								<!--<button class="fr agv_button_delete mt10" style="margin-left: 0;">
+									<img src="../img/qx01.png" class="fl mr5 agv_refer_img"/>
+									取消
+								</button>-->
+								<!--<button class="fr agv_button_hui mr20 mt10">
+									<img src="../img/hf01.png" class="fl mr5 agv_refer_img"/>
+									恢复
+								</button>
+								<button class="fr agv_button_add mr20 mt10">
+									<img src="../img/qz01.png" class="fl mr5 agv_refer_img"/>
+									强制完成
+								</button>-->
+								<button class="fr add_button mr20 mt10">
+									<img src="../img/xz01.png" class="fl mr5 agv_refer_img"/>
+									新增
+								</button>
+							</div>
+						</div>
+						<div class="fc_0 fs14 fw600 mt24 mb20">大任务</div>
+						<table id="nowTaskTable"></table>
+						<!---------------------------当前任务列表   结束---------------------------->
+						
+						<!---------------------------子任务列表   开始---------------------------->
+						<div class="clearfix mt30">
+							<div class="fc_0 fs14 fw600 mb20">子任务</div>
+							<table  id="sonTaskTable"></table>
+							
+						</div>
+						<!---------------------------子任务列表   结束---------------------------->
+					</div>
+					
+					<!--表格q  结束-->
+					
+					
+				</div>
+			
+			
+			
+			
+			
+			</div>
+			<!--    承制信息-->
+		  <div class="foot_supp">
+			<div style="margin:20px auto;width: 276px;" class="clearfix">
+				<img src="../img/UV1.png" class="fl" style="margin-top:3px;">
+				<p class="fl fs12" style="color:#9FA2A2;"></p>
+			</div>
+		  </div>
+		</div>
+<!--内容           结束-->	
+
+<!--完成任务     确认弹窗    开始-->
+<div class="modal fade hid" id="box_fun">
+		<div class="modal-backdrop fade in"></div>
+		<div class="zhezhao_delect_div pos_a">
+			<p class="center"><img src="../img/error.png"/></p>
+			<p class="clearfix mt20 center">
+				<span class="center ml10 zhezhao_delect_text fc_0 lh22 fs16 fw600"></span>
+				<span class="center ml10 zhezhao_delect_jing fc_0 lh22 fs14 mt5">一旦删除不可恢复</span>
+			</p>
+			<!-- 隐藏域 -->
+			<input id="funIdR" name="funIdR" type="hidden"/>
+			<p class="zhezhao_delect_button clearfix mt25 center">
+				<button anim="ripple" class="fl zhezhao_delect_affir fc_f ml45"><img src="../img/hs_qued.png" class="fl mr5 agv_refer_img"/>确认</button>
+				<span class="clearfix fl shu_b ml30 mt8"></span>
+				<button anim="ripple" class="fl zhezhao_delect_cancel fc_0 ml30"><img src="../img/hs_xqtc.png" class="fl mr5 agv_refer_img"/>取消</button>
+			</p>
+		</div>
+</div>
+<!--完成任务     确认弹窗    结束-->
+
+<!-- 新增模态框开始q-->
+<div class="modal fade hid" id="AGV_add">
+    <div class="modal-backdrop fade in"></div>
+    <div class="modalTabs" style="width:600px;background: #FFFFFF;">
+        <div class="message_mod_tit" ><span class="fl message_add_title">AGV任务设置</span><img class="fr fc_f mt20 agv_close_form" src="../img/close1.png" style="margin-right:20px;font-size:20px;cursor:pointer;color:#fff;" data-dismiss="modal"/></div>
+        <div class="message_mod_main login_fBox">
+            <form id="AGV_addForm" autocomplete="off">
+               		<div class="success_content_bitbox clearfix">
+               			<div class="clearfix">
+	               			<div class="clearfix form_left fl">
+	               				<div class="success_cang_lei clearfix form-group">
+									<span class="fl fs14 lh32 span fc_83">任务类型：</span> 
+									<select class="success_cang_name_input form-control fl place_input clearArea" id="taskType" name="taskType">
+										<option value="">请选择</option>
+										<option value="内部转运">内部转运</option>
+										<option value="减容车间">减容车间</option>
+									</select>	
+								</div>
+								<div class="success_cang_lei clearfix mt20 form-group">
+									<span class="fl fs14 lh32 span fc_83">起始停靠位：</span> 
+									<select class="success_cang_name_input form-control fl place_input clearArea" id="startStop" name="startStop">
+										<option value="">请选择</option>
+										<option value="1号库-1工位">1号库-1工位</option>
+										<option value="1号库-2工位">1号库-2工位</option>
+										<option value="2号库-1工位">2号库-1工位</option>
+										<option value="2号库-2工位">2号库-2工位</option>
+										<option value="3号库-1工位">3号库-1工位</option>
+										<option value="3号库-2工位">3号库-2工位</option>
+										<option value="4号库-1工位">4号库-1工位</option>
+										<option value="4号库-2工位">4号库-2工位</option>
+										<option value="减容车间-4楼-1工位">减容车间-4楼-1工位</option>
+										<option value="减容车间-玻璃固化-1工位">减容车间-玻璃固化-1工位</option>
+									</select>	
+								</div>
+	               			</div>
+	               			<div class="clearfix form_right fr">
+	           					<div class="success_cang_lei clearfix form-group">
+									<span class="fl fs14 lh32 span fc_83">任务名称：</span>
+									<input class="success_cang_name_input form-control fl place_input clearArea" id="taskName" name="taskName" placeholder="请输入"/>	
+								</div>
+								<div class="success_cang_lei clearfix mt20 form-group storage">
+									<span class="fl fs14 lh32 span fc_83">终点停靠位：</span>
+									<select class="success_cang_name_input form-control fl place_input clearArea" id="endPoint" name="endPoint">
+										<option value="">请选择</option>
+										<option value="1号库-1工位">1号库-1工位</option>
+										<option value="1号库-2工位">1号库-2工位</option>
+										<option value="2号库-1工位">2号库-1工位</option>
+										<option value="2号库-2工位">2号库-2工位</option>
+										<option value="3号库-1工位">3号库-1工位</option>
+										<option value="3号库-2工位">3号库-2工位</option>
+										<option value="4号库-1工位">4号库-1工位</option>
+										<option value="4号库-2工位">4号库-2工位</option>
+										<option value="减容车间-4楼-1工位">减容车间-4楼-1工位</option>
+										<option value="减容车间-玻璃固化-1工位">减容车间-玻璃固化-1工位</option>
+									</select>	
+								</div>
+	               			</div>
+					
+					</div>
+					<div class="success_cang_lei clearfix form-group">
+						<span class="fl fs14 lh32 span fc_83">任务频率：</span>
+						<div class="clearfix fl ml10 pt6">
+							<input id="mycheckbox6" type="checkbox" data-size=large data-shape="circled" data-color="blue" class="checkbix checkThis" dataNo="1" checkValue=""/>
+							<label aria-label="" role="checkbox" for="mycheckbox6" class="checkbix"><span></span>循环</label>
+							<input type="hidden" class="Id"/>
+						</div>
+						<div class="clearfix fl ml30 pt6">
+							<input id="mycheckbox7" type="checkbox" data-size=large data-shape="circled" data-color="blue" class="checkbix checkThis" dataNo="1" checkValue=""/>
+							<label aria-label="" role="checkbox" for="mycheckbox7" class="checkbix"><span></span>单次</label>
+							<input type="hidden" class="Id"/>
+						</div>
+						<div class="clearfix fl ml30 pt6">
+							<input id="mycheckbox8" type="checkbox" data-size=large data-shape="circled" data-color="blue" class="checkbix checkThis" dataNo="1" checkValue=""/>
+							<label aria-label="" role="checkbox" for="mycheckbox8" class="checkbix"><span></span>自定义</label>
+							<input type="hidden" class="Id"/>
+						</div>
+					</div>
+					<div class="success_cang_lei clearfix form-group">
+						<span class="fl fs14 lh32 span fc_83">任务次数：</span>
+						<input class="success_cang_name_input form-control fl place_input clearArea remark" id="finishNum" name="finishNum" placeholder="请输入" />
+					</div>
+					
+					
+					<!-- agvId隐藏域 -->
+					<input type="hidden" name="agvLineId" id="agvLineId">
+				</div>
+                <div class="message_mod_foot mt24 ml30">
+                	<button type="submit" class="putIn_btn2 fl mb24" style="color: #fff;"  id="AGVYes" aria-hidden="true"><img src="../img/bc01.png" class="fl mr5 agv_refer_img"/>保存</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<!-- 新增模态框结束q-->
+		
+<script type="text/javascript" src="../js/demo.js"></script>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+/* input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+    background:none!important;
+    background-image: none!important;
+} */
+
+input:-webkit-autofill {
+    -webkit-animation: autofill-fix 1s infinite;
+}
+
+@-webkit-keyframes autofill-fix {
+    from {
+        background-color: transparent
+    }
+    to {
+        background-color: transparent
+    }
+}
+/* 背景 */
+.log_bg{
+    width: 100% ;
+    background-image: url("../../img/loginBg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/* 表单背景 */
+.log_inner{
+    width: 892px;
+    height: 604px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-top: -302px;
+    margin-left: -446px;
+    clear: both;
+    border-radius: 16px;
+    box-shadow: 0 0 8px rgba(108,134,247,1);
+}
+.log_inner .in_l,.log_inner .in_r{
+    width: 446px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+.log_inner .in_l{width: 600px;}
+.log_inner .in_r{width: 292px;border-radius: 0 16px 16px 0;}
+.log_inner .in_l{
+    background-image: url("../../img/logInL.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.log_inner .in_r{
+    background: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.in_l h3{
+    color: #bfdafb;
+    margin:150px 0;
+    text-align: center;
+}
+.in_r h3{
+    font-size: 16px;
+    color: #323B44;
+    margin-top: 104px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.in_r p{
+    font-size: 12px;
+    color: #999;
+    margin-top: 12px;
+    margin-left: 40px;
+    line-height: 22px;
+}
+#login_f{
+    margin-left: 41px;
+    margin-top: 50px;
+}
+.log_inner .in_r input{
+    width: 155px;
+    display: inline-block;
+    height:40px;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    outline: none;
+}
+input[type='text']:focus{
+	border-color:none !important;
+	outline: none!important;
+}
+.form-control-feedback {
+    top: 7px;
+    right: 0px;
+   }
+.login_tou{
+	margin-left: 3px;
+    width: 285px;
+    margin-top: 118px;
+}
+.login_password,.login_name{
+	background:rgba(232,237,255,1);
+	border:1px solid rgba(68,66,255,1);
+	border-radius:21px;
+	padding-left: 14px;
+}
+.login_password span,.login_name span{
+	font-family:PangMenZhengDao;
+	font-weight:400;
+	color:rgba(38,110,255,1);
+	line-height: 40px;
+}
+/* 提交按钮 */
+#log_sub{
+    margin-top: 40px;
+    margin-left: 8px;
+	background:linear-gradient(-45deg,rgba(95,132,255,1),rgba(68,66,255,1));
+	border-radius:21px;
+    color: #fff;
+    font-size: 14px;
+    width: 217px;
+    height: 40px;
+}
+
+
+.zeng_msgbox_layer_wrap{
+    left: 43%;
+}
+

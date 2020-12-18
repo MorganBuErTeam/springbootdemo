@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="../js/commonJs.js"></script>
+		<script src="../css/commonCss.js"></script>
+		<link type="text/css" rel="stylesheet" href="../css/jeDate-test.css">
+	    <link type="text/css" rel="stylesheet" href="skin/jedate.css">
+	    <script type="text/javascript" src="../js/jedate.js"></script>
+		<script src="js/historyTaskInfo.js"></script>
+		<link rel="stylesheet" href="css/taskInfo.css" />
+		<title>任务信息</title>
+	</head>
+	<body>
+<!--头部-->
+	  <div class="head">
+			<div class="add_top">
+			</div>
+	  </div>
+<!-- 头部结束 -->
+<!--内容           开始-->
+		<div class="avoid_warp">
+		    <div class="avoid_inner">
+		    	<!--标题按钮栏    开始-->
+					<div class="clearfix">
+						<div class="title_bar fs14 fl fc_0 cursor" style="background: none;"><a class="fw500" style="background: none; color: #8396AE;" href="../infoSystem/taskInfo.html">当前任务</a></div>
+						<div class="title_bar fs14 fl fc_0 cursor" style="color:#000000;"><a style="color: #000000;font-weight:600;" href="../infoSystem/historyTaskInfo.html">历史任务</a></div>
+					</div>			
+				<!--标题按钮栏    结束-->
+			
+			<!---------------------------历史任务列表   开始---------------------------->
+				<div class="mixtrue_avoid_list clearfix">
+				   <div class="taskTable clearfix">
+							<div class="clearfix agv_button_bar">
+							<div class="clearfix">
+								<div class="clearfix fl agv_search_box pos_r">
+									<span class="fc_83 fs14 fl lh32">任务类型：</span>
+									<select type="text" class="fl agv_search_input pl10 lh32" id="search_type">
+										<option value="">请选择</option>
+										<option value="内部转运">内部转运</option>
+										<option value="减容车间">减容车间</option>
+									</select>
+									
+									<span class="fc_83 fs14 fl lh32 ml24">执行状态：</span>
+									<select type="text" class="fl agv_search_input pl10 lh32" id="zhi_state">
+										<option value="">请选择</option>
+										<option value="完成">完成</option>
+										<option value="取消">取消</option>
+										<option value="删除">删除</option>
+									</select>
+									
+									<div class="fl ml30 mr30 clearfix" style="height:60px;">
+										<span class="fc_83 fs14 fl lh32">完成时间：</span>
+										<div class="fl">
+											<input type="text" class="jeinput fs14 fc_0" style="cursor: default;" id="c1" placeholder="请选择">
+										</div>
+										<span class="fl lh32 ml10">-</span>
+										<div class="ml10 fl" >
+											<input type="text" class="jeinput fs14 fc_0" style="cursor: default;" id="c2" placeholder="请选择">
+										</div>
+									</div>	
+								</div>
+							</div>
+							<div class="clearfix">
+								<div class="clearfix fl search_box cursor" id="chaxun">
+									<img src="../img/search-icon.png" class="fl mr5 agv_refer_img"/>
+									查询
+								</div>
+								<button class="agv_button_add ml30 fl daochu" anim="ripple">导出Excel</button>
+							
+							</div>
+						</div>
+					
+					<!--表格q  开始-->
+					<div class="mt24">
+						<table id="taskTable"></table>
+					</div>
+					<!--表格q  结束-->
+				 </div>
+				</div>
+			<!---------------------------历史任务记录   结束---------------------------->
+
+			</div>
+			<div class="clearfix mt30 hidden" >
+				<div class="fc_0 fs14 fw600 mb20"></div>
+				<table  id="sonTaskTable"></table>
+
+			</div>
+			<!--    承制信息-->
+		  <div class="foot_supp">
+			<div style="margin:20px auto;width: 276px;" class="clearfix">
+				<img src="../img/UV1.png" class="fl" style="margin-top:3px;">
+				<p class="fl fs12" style="color:#9FA2A2;"></p>
+			</div>
+		  </div>
+		</div>
+		
+		
+<script type="text/javascript" src="../js/demo.js"></script>
+	</body>
+</html>
