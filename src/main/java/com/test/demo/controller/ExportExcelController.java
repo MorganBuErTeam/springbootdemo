@@ -3,7 +3,11 @@ package com.test.demo.controller;
 
 import com.test.demo.common.util.DateUtil;
 import com.test.demo.common.util.ExcelUtils;
+import com.test.demo.domain.Task;
+import com.test.demo.service.TaskService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,11 +22,15 @@ import java.util.*;
  */
 @RestController
 @RequestMapping("/excel")
+@Slf4j
 public class ExportExcelController {
 
+    @Autowired
+    private TaskService taskService;
     
     @GetMapping("/taskLog")
-    public void taskLog(String state,String taskType,String taskState,String startDate,String endDate,HttpServletResponse response){
+    public void taskLog(HttpServletResponse response){
+        //http://localhost:8080/infoSystem/historyTaskInfo.html
         try {
             List<String[]> excelHeaderList=new ArrayList<>();
             List<List<Object>> taskList = new ArrayList<>();
@@ -40,27 +48,14 @@ public class ExportExcelController {
                     "完成时间#finishDate";
             String[] excelHeaderTwo = export.split(",");
             excelHeaderList.add(excelHeaderTwo);
-            //声明数据集合
-            if(null!=taskState && !"".equals(taskState)){
-                state=taskState;
-            }
-//            List<Task> taskLogs = taskService.queryInfoBy(state,taskType,startDate, endDate);
-            List<String> taskLogs =null;
-            Date startTime = null;
-            Date endTime = null;
-            if (StringUtils.isNotBlank(startDate) && !"null".equals(startDate)) {
-                startTime = DateUtil.stringToDate((startDate+" 00:00:00"));
-                if (StringUtils.isNotBlank(endDate) && !"null".equals(endDate)) {
-                    endTime = DateUtil.stringToDate((endDate+" 23:59:59"));
-                }
-            }
+            List<Task> taskLogs = taskService.selectListAll();
 //            List<SubTask> subTaskList = subTaskMapper.queryInfoBy(state,taskType,startTime, endTime);
-            List<String> subTaskList =null;
+            List<String> subTaskList =new ArrayList<>();
             taskList.add(Collections.singletonList(taskLogs));
             taskList.add(Collections.singletonList(subTaskList));
             ExcelUtils.excelExportBacth(response, fileNames, excelHeaderList, taskList);//调用封装好的导出方法，具体方法在下面
         } catch (Exception e) {
-        	System.out.println("导出错误信息： "+e.getMessage());
+            log.error("导出异常:",e);
         }
     }
 
