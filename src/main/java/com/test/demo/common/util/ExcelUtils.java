@@ -5,16 +5,14 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * 基于POI的javaee导出Excel工具类
@@ -134,7 +132,10 @@ public class ExcelUtils {
             }
         }
 
-        OutputStream outputStream = response.getOutputStream();// 打开流
+//        OutputStream outputStream = response.getOutputStream();// 打开流
+        //导出到指定路径
+        String rootFilePath = "D:/exportByJava/";
+        FileOutputStream outputStream=new FileOutputStream(rootFilePath+"/"+fileNames[0] + ".xls");
         wb.write(outputStream);// HSSFWorkbook写入流
         // wb.close();// HSSFWorkbook关闭
         outputStream.flush();// 刷新流
