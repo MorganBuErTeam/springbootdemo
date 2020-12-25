@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.io.*;
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -30,6 +31,7 @@ public class Task implements Cloneable,Serializable {
 	@Column(name = "agvCode")
 	private Integer agvCode; //agv编号
 
+	@NotNull(message = "任务名称为空！")
 	@Column(name = "taskName")
 	private String taskName;//任务名称
 
