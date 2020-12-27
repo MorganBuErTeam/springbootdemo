@@ -1,13 +1,11 @@
 package com.test.demo.controller;
 
 
-
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.metadata.BaseRowModel;
 import com.alibaba.excel.metadata.Sheet;
 import com.alibaba.excel.support.ExcelTypeEnum;
-import com.test.demo.common.util.DateUtil;
 import com.test.demo.common.util.ExcelUtils;
 import com.test.demo.domain.Task;
 import com.test.demo.service.TaskService;
@@ -16,10 +14,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +26,9 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * 导出Excel文件
@@ -80,7 +77,7 @@ public class ExportExcelController {
     @GetMapping("/easyexcel")
     public void export(HttpServletResponse response) throws Exception{
         File excelFile=getExcelFile();
-        List<Task> list=new ArrayList<>();
+        List<Task> list = taskService.selectListAll();
         writeDateToExcel(createModelList(list),excelFile);
     }
 
