@@ -11,6 +11,7 @@ import com.test.demo.service.TaskService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -104,7 +105,7 @@ public class TaskController extends BaseController<TaskService,Task> {
      * @return
      */
     @PostMapping("/save")
-    public ResponseVo saveControlCabinetInfo(@RequestBody Task entity) {
+    public ResponseVo saveControlCabinetInfo(@Validated @RequestBody Task entity) {
         String msg = null;
 		try {
 //			Task entity=new Task();
