@@ -28,7 +28,7 @@ public class ImportExcelController {
         try {
             msg = materielService.importExcelInfo(file);
         } catch (Exception e) {
-            msg = "异常："+e.getMessage();
+            msg = "异常"+e.getMessage();
         }
         return msg == null ? ResponseVoUtil.successMsg("导入成功") : ResponseVoUtil.failResult("导入失败");
     }
