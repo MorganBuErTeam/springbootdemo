@@ -1,5 +1,8 @@
 package com.test.demo.test;
 
+import com.test.demo.domain.Task;
+import org.springframework.util.StringUtils;
+
 /**
  * @Description: ${description}
  * @Author: zY
@@ -8,6 +11,16 @@ package com.test.demo.test;
 public class TestString {
 
 
+    public static void main(String[] args) {
+        Task task=new Task().setTaskName("名称");
+        if(!task.getTaskName().contains("上网")){
+            System.out.println("-1");
+        }
+        if(!task.getTaskType().contains("上网")){
+            System.out.println("-2");
+        }
+
+    }
 
 
 //    public static void main(String[] args) {
