@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * easyExcel导出Excel文件
- * @author Administrator
  *
+ * @author Administrator
  */
 @RestController
 @RequestMapping("/easyexcel")
@@ -15,12 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class EasyExcelExportController {
 
 
-
-    //    @GetMapping("/easyexcel")
-//    public void export(HttpServletResponse response) throws Exception{
-//        File excelFile=getExcelFile();
+//    @GetMapping("/easyexcel")
+//    public void export(HttpServletResponse response) throws Exception {
+//
+//        //创建excel文件
+//        File excelFile = new File("路径", "文件名");
+//        FileUtils.touch(excelFile);
+//
+//        //查询数据
 //        List<Task> list = taskService.selectListAll();
-//        writeDateToExcel(createModelList(list),excelFile);
+//
+//        //导出excel文件
+//        writeDateToExcel(createModelList(list), excelFile);
 //    }
 //
 //
@@ -93,7 +99,6 @@ public class EasyExcelExportController {
 //        private String abbr;
 //
 //    }
-
 
 
 }
