@@ -36,8 +36,7 @@ public class TestMethodController {
 
     @PostMapping(value = "/sdfsdf")
     public UpKeepInfo sjsflsadjfl(@RequestBody Task task) {
-        UpKeepInfo upKeepInfo=new UpKeepInfo().setCreateDate(new Date()).setDeviceName("名称").setNumDay("2020");
-        return upKeepInfo;
+        return null;
     }
 
 }
