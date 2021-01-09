@@ -34,10 +34,5 @@ public class TestMethodController {
         return upKeepInfo;
     }
 
-    @PostMapping(value = "/sdfsdf")
-    public UpKeepInfo sjsflsadjfl(@RequestBody Task task) {
-        System.out.println("a");
-        return new UpKeepInfo();fdgddddddd
-    }
 
 }
