@@ -36,7 +36,7 @@ public class TestMethodController {
 
     @PostMapping(value = "/sdfsdf")
     public UpKeepInfo sjsflsadjfl(@RequestBody Task task) {
-        return null;
+        return new UpKeepInfo();
     }
 
 }
