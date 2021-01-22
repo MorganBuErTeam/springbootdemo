@@ -27,13 +27,15 @@ import java.util.Map;
 @Slf4j
 public class TaskController extends BaseController<TaskService,Task> {
 
-    @Autowired
-    private TaskService taskService;
+    private final TaskService taskService;
+
 	@Autowired
-	private TaskMapper taskMapper;
+	public TaskController(TaskService taskService) {
+		this.taskService = taskService;
+	}
 
 
-    /**
+	/**
      * 分页查询任务信息
      * @param pageCondition
      * @return

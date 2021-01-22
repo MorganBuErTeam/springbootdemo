@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.ComponentScan;
 
+import javax.annotation.PostConstruct;
+
 
 /**
  * 启动类
@@ -20,6 +22,12 @@ public class Application {
         new SpringApplicationBuilder(Application.class).run(args);
     }
 
+
+
+    @PostConstruct
+    public void run(){
+        System.out.println("程序启动时执行");
+    }
 
 
 

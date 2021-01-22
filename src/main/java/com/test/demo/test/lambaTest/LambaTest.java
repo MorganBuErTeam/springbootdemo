@@ -10,6 +10,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
@@ -31,7 +32,11 @@ public class LambaTest {
 
 
      //升序排序
-//    list.sort(a,b->a.getCode().compareTo(b.getCode()));
+     //写法1：
+    taskList.sort((Task a,Task b)
+            -> a.getAgvCode().compareTo(b.getAgvCode()));
+    //写法2：
+     taskList.sort(comparing(Task::getAgvCode));
 
      //布尔类型排序,
      List<TaskSortVo> taskGroupVoList=new ArrayList<>();
