@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.POIXMLDocument;
 import org.apache.poi.POIXMLTextExtractor;
+import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 import org.apache.poi.openxml4j.opc.OPCPackage;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
@@ -63,9 +64,13 @@ public class FileDispose {
                     pageContent+=PdfTextExtractor.getTextFromPage(pdfReader,i);
                 }
             }else if("doc".equalsIgnoreCase(FilenameUtils.getExtension(targetFile.getName()))){
-
+                //方式1
                 InputStream inputStream=new FileInputStream(targetFile);
                 WordExtractor extractor=new WordExtractor(inputStream);
+                //方式2
+//                FileInputStream fisx=new FileInputStream(targetFile);
+//                HWPFDocument document=new HWPFDocument(fisx);
+//                WordExtractor extractor=new WordExtractor(document);
 
                 pageContent=extractor.getText();
 
