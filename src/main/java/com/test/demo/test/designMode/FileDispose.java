@@ -1,22 +1,14 @@
-package com.test.demo.common.util;
+package com.test.demo.test.designMode;
 
-import com.itextpdf.text.pdf.PdfReader;
-import com.itextpdf.text.pdf.parser.PdfTextExtractor;
+import com.test.demo.test.designMode.factory.FileDisposeServicesFactory;
+import com.test.demo.test.designMode.service.FileDisposeService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.poi.POIXMLDocument;
-import org.apache.poi.POIXMLTextExtractor;
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.junit.Test;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 
 @Slf4j
 public class FileDispose {
@@ -52,42 +44,20 @@ public class FileDispose {
             FileUtils.copyFile(sourceFile,targetFile);
 
             //判断文件格式，使用对应的读取器，读取为string   word:poi     pdf:itextpdf
-            String  pageContent="";
 
-            if("pdf".equalsIgnoreCase(FilenameUtils.getExtension(targetFile.getName()))){
+            //FilenameUtils工具类常用方法：
+            //  getExtension(String path)：获取文件的扩展名
+            //  getName()：获取文件夹或文件的名称；
+            //  isExtension(String fileName,String ext)：判断fileName是否是ext后缀名
 
-                PdfReader pdfReader=new PdfReader(targetFile.getPath());
-                int pageNum=pdfReader.getNumberOfPages();
+            String fileType=FilenameUtils.getExtension(targetFile.getName());
 
-                for(int i=1;i<=pageNum;i++){
-                    //读取第i页的文档内容
-                    pageContent+=PdfTextExtractor.getTextFromPage(pdfReader,i);
-                }
-            }else if("doc".equalsIgnoreCase(FilenameUtils.getExtension(targetFile.getName()))){
-                //方式1
-                InputStream inputStream=new FileInputStream(targetFile);
-                WordExtractor extractor=new WordExtractor(inputStream);
-                //方式2
-//                FileInputStream fisx=new FileInputStream(targetFile);
-//                HWPFDocument document=new HWPFDocument(fisx);
-//                WordExtractor extractor=new WordExtractor(document);
-
-                pageContent=extractor.getText();
-
-                inputStream.close();
-                extractor.close();
-            }else if("docx".equalsIgnoreCase(FilenameUtils.getExtension(targetFile.getName()))){
-
-                OPCPackage opcPackage=POIXMLDocument.openPackage(targetFile.getPath());
-                POIXMLTextExtractor extractor=new XWPFWordExtractor(opcPackage);
-
-                pageContent=extractor.getText();
-
-                opcPackage.close();
-                extractor.close();
-            }else{
+            FileDisposeService fileDisposeService=FileDisposeServicesFactory.getService(fileType);
+            if(null==fileDisposeService){
                 throw new RuntimeException(String.format("%s 文件,类型无法处理",targetFile.getName()));
             }
+
+            String  pageContent=fileDisposeService.readFile(targetFile);
 
             if(pageContent.contains("中证")){
                 System.out.println("命中关键词");
