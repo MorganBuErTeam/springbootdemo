@@ -21,7 +21,7 @@ public class FileDispose {
         fileCopyVo.setSourceFilePath("/projects/data/");
         fileCopyVo.setTargetFilePath("/projects/data/tmp");
 
-        String fileName="";
+        String fileName="测试文件.pdf";
 
         File sourceFile=new File(fileCopyVo.getSourceFilePath(),fileName);
         if(sourceFile.isDirectory()){
