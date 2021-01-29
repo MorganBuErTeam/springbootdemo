@@ -1,7 +1,7 @@
-package com.test.demo.test.designMode;
+package com.test.demo.test.designMode.strategyPattern;
 
-import com.test.demo.test.designMode.factory.FileDisposeServicesFactory;
-import com.test.demo.test.designMode.service.FileDisposeService;
+import com.test.demo.test.designMode.strategyPattern.factory.FileDisposeServicesFactory;
+import com.test.demo.test.designMode.strategyPattern.service.FileDisposeService;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
@@ -10,6 +10,9 @@ import org.junit.Test;
 
 import java.io.File;
 
+/**
+ * 文件读取，doc,docx,pdf
+ */
 @Slf4j
 public class FileDispose {
 
@@ -52,11 +55,11 @@ public class FileDispose {
 
             String fileType=FilenameUtils.getExtension(targetFile.getName());
 
+            //使用策略模式，优化if-else
             FileDisposeService fileDisposeService=FileDisposeServicesFactory.getService(fileType);
             if(null==fileDisposeService){
                 throw new RuntimeException(String.format("%s 文件,类型无法处理",targetFile.getName()));
             }
-
             String  pageContent=fileDisposeService.readFile(targetFile);
 
             if(pageContent.contains("中证")){

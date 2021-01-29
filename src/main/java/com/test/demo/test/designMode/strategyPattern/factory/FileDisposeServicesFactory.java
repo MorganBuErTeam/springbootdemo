@@ -1,9 +1,9 @@
-package com.test.demo.test.designMode.factory;
+package com.test.demo.test.designMode.strategyPattern.factory;
 
-import com.test.demo.test.designMode.service.FileDisposeService;
-import com.test.demo.test.designMode.service.impl.DocFileDisposeServiceImpl;
-import com.test.demo.test.designMode.service.impl.DocxFileDisposeServiceImpl;
-import com.test.demo.test.designMode.service.impl.PDFFileDisposeServiceImpl;
+import com.test.demo.test.designMode.strategyPattern.service.FileDisposeService;
+import com.test.demo.test.designMode.strategyPattern.service.impl.DocFileDisposeServiceImpl;
+import com.test.demo.test.designMode.strategyPattern.service.impl.DocxFileDisposeServiceImpl;
+import com.test.demo.test.designMode.strategyPattern.service.impl.PDFFileDisposeServiceImpl;
 
 import java.util.HashMap;
 import java.util.Map;

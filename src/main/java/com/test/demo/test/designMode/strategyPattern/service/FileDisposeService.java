@@ -1,4 +1,4 @@
-package com.test.demo.test.designMode.service;
+package com.test.demo.test.designMode.strategyPattern.service;
 
 
 import java.io.File;

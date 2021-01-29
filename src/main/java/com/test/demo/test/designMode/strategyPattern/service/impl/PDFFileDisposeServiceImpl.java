@@ -1,8 +1,8 @@
-package com.test.demo.test.designMode.service.impl;
+package com.test.demo.test.designMode.strategyPattern.service.impl;
 
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
-import com.test.demo.test.designMode.service.FileDisposeService;
+import com.test.demo.test.designMode.strategyPattern.service.FileDisposeService;
 
 import java.io.File;
 

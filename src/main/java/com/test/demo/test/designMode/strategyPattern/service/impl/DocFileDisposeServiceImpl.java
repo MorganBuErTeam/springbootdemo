@@ -1,6 +1,6 @@
-package com.test.demo.test.designMode.service.impl;
+package com.test.demo.test.designMode.strategyPattern.service.impl;
 
-import com.test.demo.test.designMode.service.FileDisposeService;
+import com.test.demo.test.designMode.strategyPattern.service.FileDisposeService;
 import org.apache.poi.hwpf.extractor.WordExtractor;
 
 import java.io.File;
