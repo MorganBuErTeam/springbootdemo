@@ -1,14 +1,12 @@
 package com.test.demo.controller;
 
 import com.test.demo.annotation.KthLog;
-import com.test.demo.domain.City;
 import com.test.demo.domain.Task;
 import com.test.demo.domain.UpKeepInfo;
 import com.test.demo.service.TaskService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
