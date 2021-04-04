@@ -1,27 +1,42 @@
 package com.test.demo.domain;
 
-import lombok.AllArgsConstructor;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.apache.solr.client.solrj.beans.Field;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.solr.core.mapping.SolrDocument;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
-@SolrDocument(solrCoreName = "test_core")
+import java.io.Serializable;
+
+/**
+ * <p>
+ *
+ * </p>
+ *
+ * @author zf
+ * @since 2021-04-03
+ */
 @Data
-public class City {
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+public class City implements Serializable {
 
-    @Field
+    private static final long serialVersionUID = 1L;
+
+    @TableId(value = "cid", type = IdType.AUTO)
     private Integer cid;
 
-    @Field
     private String city;
 
-    @Field
     private Integer pid;
 
 
-    public  City (String city){
-        this.city=city;
+    public City() {
     }
+
+    public City(String city) {
+        this.city = city;
+    }
+
+
 }

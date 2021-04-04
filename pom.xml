@@ -396,29 +396,92 @@
             <artifactId>easyexcel</artifactId>
             <version>${easyexcel.version}</version>
         </dependency>
+        <!-- mybatis-plus -->
+        <!--<dependency>-->
+            <!--<groupId>com.baomidou</groupId>-->
+            <!--<artifactId>mybatis-plus-boot-starter</artifactId>-->
+            <!--<version>3.3.2</version>-->
+        <!--</dependency>-->
+        <!-- mybatisPLus-generate代码生成器 start -->
 
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>fun.zhaofan</groupId>
+            <artifactId>mybatis-plus-generate</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+            <!--<version>2.11.0</version>-->
+        <!--</dependency>-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-generator</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.30</version>
+        </dependency>
+        <!-- mybatisPLus-generate代码生成器 end -->
 
     </dependencies>
 
 
-
-
-
     <build>
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.springframework.boot</groupId>-->
+                <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+            <!--</plugin>-->
+            <!--<plugin>-->
+                <!--&lt;!&ndash;指定maven编译的jdk版本，如果不指定，maven3默认用jdk1.5；maven2默认用jdk1.3&ndash;&gt;-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-compiler-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--&lt;!&ndash;源代码使用的jdk版本&ndash;&gt;-->
+                    <!--<source>${java.version}</source>-->
+                    <!--&lt;!&ndash;需要生成的目标class文件的编译版本&ndash;&gt;-->
+                    <!--<target>${java.version}</target>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <!--指定maven编译的jdk版本，如果不指定，maven3默认用jdk1.5；maven2默认用jdk1.3-->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <!--源代码使用的jdk版本-->
-                    <source>${java.version}</source>
-                    <!--需要生成的目标class文件的编译版本-->
-                    <target>${java.version}</target>
+                    <mainClass>fun.zhaofan.cms.util.plugin.GenerateMain</mainClass>
+                    <includePluginDependencies>true</includePluginDependencies>
+                    <cleanupDaemonThreads>false</cleanupDaemonThreads>
+                    <arguments>
+                        <argument>src/main/resources/mybatis-plus-generator.yaml</argument>
+                    </arguments>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,0 +1,46 @@
+author: zf
+open: false
+outputDir: src/main/java
+#serviceName: "%sService"
+#controllerModule: springbootdemo
+dateType: ONLY_DATE
+fileOverride: false
+idType: ASSIGN_ID  #主键策略(ASSIGN_ID:雪花算法，AUTO:自增长)
+
+dataSource:
+  url: jdbc:mysql://127.0.0.1:3306/springbootdemo?tinyInt1isBit=false&characterEncoding=utf8&useSSL=false
+  driverName: com.mysql.jdbc.Driver
+  username: root
+  password: MORGANABC
+  dbType: MYSQL
+
+packageInfo:
+  moduleName: demo
+  entity: domain
+  parent: com.test
+
+strategy:
+  naming: underline_to_camel
+  columnNaming: underline_to_camel
+  entityLombokModel: true
+  restControllerStyle: true
+#  superEntityClass: fun.zhaofan.cms.MyBase.BaseEntity
+#  superMapperClass: com.baomidou.mybatisplus.core.mapper.BaseMapper
+#  superServiceClass: com.baomidou.mybatisplus.extension.service.IService
+#  superServiceImplClass: com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+  superControllerClass: fun.zhaofan.cms.util.baseObject.BaseController
+  superEntityColumns:
+    - created_emp
+    - created_time
+    - updated_emp
+    - updated_time
+  include:
+    - city
+
+template:
+  xml: null
+
+#是否开启二级缓存
+enableCache: false
+baseResultMap: true
+baseColumnList: true

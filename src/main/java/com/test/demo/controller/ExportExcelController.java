@@ -60,6 +60,26 @@ public class ExportExcelController {
     }
 
 
+    @GetMapping("/test")
+    public void test(HttpServletResponse response){
+        try {
+            List<String[]> excelHeaderList=new ArrayList<>();
+            List<List<Object>> taskList = new ArrayList<>();
+            //fileNames:文件名和sheet页
+            String[] fileNames={"任务历史日志"};
+            String export = "AGV编号#agvCode,任务名称#taskName,任务状态#state,任务类型#taskType,产生时间#createDate," +
+                    "响应时间#realStartDate,完成时间#finishDate,备注#remark,优先级#sort,搬运次数#count,完成次数#finishCount,任务频率#frequency," +
+                    "起始停靠点#startSitCode,目标停靠点#targetSitCode";
+            String[] excelHeader = export.split(",");
+            excelHeaderList.add(excelHeader);
+            List<Task> taskLogs = taskService.selectListAll();
+            taskList.add(Collections.singletonList(taskLogs));
+            //调用封装好的导出方法，具体方法在下面
+            ExcelUtils.excelExportBacth(response, fileNames, excelHeaderList, taskList);
+        } catch (Exception e) {
+            log.error("导出异常:",e);
+        }
+    }
 
     
     

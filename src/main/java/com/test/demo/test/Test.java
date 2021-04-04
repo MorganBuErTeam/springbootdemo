@@ -1,7 +1,6 @@
 package com.test.demo.test;
 
 import com.test.demo.domain.City;
-import com.test.demo.domain.Task;
 import org.springframework.core.SpringVersion;
 
 import java.lang.reflect.InvocationHandler;
