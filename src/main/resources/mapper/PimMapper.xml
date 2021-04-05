@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.demo.dao.PimDao">
+	<resultMap type="com.test.demo.entity.Pim" id="PimMap">
+		<id property="ID" column="ID"/>
+		<result property="NAME" column="NAME"/>
+		<result property="SEX" column="SEX"/>
+		<result property="AGE" column="AGE"/>
+	</resultMap>
+
+	<!--根据主键获取对象-->
+	<select id="get" parameterType="com.test.demo.entity.Pim" resultMap="PimMap">
+		SELECT ID,NAME,SEX,AGE FROM PIM 
+		WHERE ID=#{ID}
+	</select>
+
+	<!--保存-->
+	<insert id="save" parameterType="com.test.demo.entity.Pim" useGeneratedKeys="true" keyProperty="ID">
+		INSERT INTO PIM(NAME,SEX,AGE)
+		VALUES(#{NAME},#{SEX},#{AGE})
+	</insert>
+
+	<!--修改-->
+	<update id="update" parameterType="com.test.demo.entity.Pim">
+		UPDATE PIM SET NAME=#{NAME},SEX=#{SEX},AGE=#{AGE}
+		WHERE ID=#{ID}
+	</update>
+
+	<!--删除-->
+	<delete id="delete" parameterType="com.test.demo.entity.Pim">
+		 DELETE FROM PIM WHERE ID=#{ID}
+	</delete>
+
+	<!--分页查询-->
+	<select id="findByPage" parameterType="com.test.demo.entity." resultMap="PimMap">
+		SELECT ID,NAME,SEX,AGE FROM PIM
+		WHERE 1=1
+		<if test="NAME!=null and NAME!='' "  >
+		AND NAME=#{NAME}
+		</if>
+		<if test="SEX!=null and SEX!='' "  >
+		AND SEX=#{SEX}
+		</if>
+		<if test="AGE!=null and AGE!='' "  >
+		AND AGE=#{AGE}
+		</if>
+		<if test="sort!= null">
+		order by ${sort} ${order}
+		</if>
+		limit #{offset},#{limit}
+	</select>
+
+	<!--统计-->
+	<select id="count" parameterType="com.test.demo.entity." resultType="int">
+		SELECT count(*) FROM PIM
+		WHERE 1=1
+		<if test="NAME!=null and NAME!='' ">
+		AND NAME=#{NAME}
+		</if>
+		<if test="SEX!=null and SEX!='' ">
+		AND SEX=#{SEX}
+		</if>
+		<if test="AGE!=null and AGE!='' ">
+		AND AGE=#{AGE}
+		</if>
+	</select>
+
+	<!--查询-->
+	<select id="query" parameterType="com.test.demo.entity." resultMap="PimMap">
+		SELECT ID,NAME,SEX,AGE FROM PIM
+		WHERE 1=1
+		<if test="NAME!=null and NAME!='' ">
+		AND NAME=#{NAME}
+		</if>
+		<if test="SEX!=null and SEX!='' ">
+		AND SEX=#{SEX}
+		</if>
+		<if test="AGE!=null and AGE!='' ">
+		AND AGE=#{AGE}
+		</if>
+		<if test="sort!= null">
+		order by ${sort} ${order}
+		</if>
+	</select>
+</mapper>
