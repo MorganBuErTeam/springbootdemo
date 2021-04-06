@@ -31,12 +31,17 @@ public class GenCodeUtil {
         for(String imp : table.getImports()){
             sb.append("import "+imp+";\n");
         }
+        sb.append("import lombok.Data;\n");
+        sb.append("import javax.persistence.*;\n");
         sb.append("\n");
         sb.append("/**\n *@author "+author+"\n **/\n");
         List<ColumnModel> columnModelList = table.getColumns();
         try {
             sb.append("@Data"+"\n");
-            sb.append("public class "+toFirstCharUpCase(beanName)+" {\r\n");
+            String tableName="\""+table.getTableName()+"\""; //字符串两边含有双引号
+            sb.append("@Table(name="+ tableName+")"+"\n");
+            String extendsStr=""; //继承
+            sb.append("public class "+toFirstCharUpCase(beanName)+extendsStr+"{\r\n");
             for (ColumnModel columnModel : columnModelList) {
                 if(StringUtils.isNotBlank(columnModel.getRemarks())){
                     sb.append("	//"+columnModel.getRemarks()+" \r\n");
